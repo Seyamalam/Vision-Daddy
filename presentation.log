@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.3)  2 MAY 2025 12:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.3)  2 MAY 2025 12:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -795,6 +795,23 @@ Package: listings 2024/09/23 1.10c (Carsten Heinz)
 (C:\Users\user\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty
 Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
 )
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\\' on input line 54.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\\' on input line 54.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\\' on input line 54.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\\' on input line 54.
+
+
 (C:\Users\user\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdft
 ex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
@@ -803,24 +820,24 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 ) (presentation.aux)
 \openout1 = `presentation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -882,63 +899,63 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 g
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 52.
+Package hyperref Info: Link coloring OFF on input line 61.
  (presentation.out) (presentation.out)
 \@outlinefile=\write5
 \openout5 = `presentation.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 52.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 61.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 52.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 61.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 52.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 52.
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 61.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 61.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 52.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 61.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 52.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 52.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 61.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 61.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 52.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 61.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 52.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 52.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 61.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 61.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 52.
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 61.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 52.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 52.
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 61.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 61.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 52.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 61.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 52.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 61.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 52.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 61.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 52.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 61.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 52.
+(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 61.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 52.
+(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 61.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 52.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 61.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 52.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 61.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 52.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 52.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 61.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 61.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
-(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 5
-2.
+(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 6
+1.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 5
-2.
+(Font)                  OT1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 6
+1.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
-ut line 52.
+ut line 61.
 
 (C:\Users\user\AppData\Local\Programs\MiKTeX\tex/latex/translator\translator-ba
 sic-dictionary-English.dict
@@ -966,504 +983,271 @@ Dictionary: translator-theorem-dictionary, Language: English
 )
 \c@lstlisting=\count360
  (presentation.nav)
-Overfull \hbox (14.36966pt too wide) in paragraph at lines 52--52
+Overfull \hbox (309.58345pt too wide) in paragraph at lines 61--61
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 
-Overfull \hbox (19.27383pt too wide) in paragraph at lines 52--52
- [][][][]  
- []
-
-
-Overfull \hbox (14.36966pt too wide) in paragraph at lines 57--57
+Overfull \hbox (309.58345pt too wide) in paragraph at lines 66--66
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 
-Overfull \hbox (19.27383pt too wide) in paragraph at lines 57--57
- [][][][]  
- []
 
 
-
-
-Overfull \hbox (14.36966pt too wide) has occurred while \output is active
+Overfull \hbox (309.58345pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (19.27383pt too wide) has occurred while \output is active
- [][][][]  
  []
 
 [1
 
 {C:/Users/user/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-Overfull \hbox (14.36966pt too wide) in paragraph at lines 62--62
+Overfull \hbox (309.58345pt too wide) in paragraph at lines 71--71
  [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (19.27383pt too wide) in paragraph at lines 62--62
- [][][][]  
  []
 
 (presentation.toc)
 
 
-Overfull \hbox (14.36966pt too wide) has occurred while \output is active
+Overfull \hbox (309.58345pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (19.27383pt too wide) has occurred while \output is active
- [][][][]  
  []
 
 [2
 
 ]
-Overfull \hbox (14.36966pt too wide) in paragraph at lines 92--92
+Overfull \hbox (309.58345pt too wide) in paragraph at lines 101--101
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
-
-Overfull \hbox (19.27383pt too wide) in paragraph at lines 92--92
- [][][][]  
- []
-
-<vision vault.jpeg, id=130, 1027.84pt x 574.145pt>
+<vision vault.jpeg, id=136, 1027.84pt x 574.145pt>
 File: vision vault.jpeg Graphic file (type jpg)
 <use vision vault.jpeg>
-Package pdftex.def Info: vision vault.jpeg  used on input line 92.
+Package pdftex.def Info: vision vault.jpeg  used on input line 101.
 (pdftex.def)             Requested size: 136.91603pt x 76.47246pt.
 
-
-
-Overfull \hbox (14.36966pt too wide) has occurred while \output is active
- [][]  \OT1/cmss/m/n/6 ([])  
+Overfull \vbox (52.50456pt too high) detected at line 101
  []
 
 
-Overfull \hbox (19.27383pt too wide) has occurred while \output is active
- [][][][]  
+
+
+Overfull \hbox (309.58345pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 [3
 
  <./vision vault.jpeg>]
-Overfull \hbox (14.36966pt too wide) in paragraph at lines 94--94
+Overfull \hbox (309.58345pt too wide) in paragraph at lines 127--127
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 
-Overfull \hbox (19.27383pt too wide) in paragraph at lines 94--94
- [][][][]  
- []
-
-\openout4 = `presentation.vrb'.
 
 
-Overfull \hbox (14.36966pt too wide) in paragraph at lines 122--122
+Overfull \hbox (309.58345pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (19.27383pt too wide) in paragraph at lines 122--122
- [][][][]  
- []
-
-(presentation.vrb
-(C:\Users\user\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
-File: lstlang1.sty 2024/09/23 1.10c listings language file
-))
-Overfull \vbox (47.60425pt too high) detected at line 122
- []
-
-
-
-
-Overfull \hbox (14.36966pt too wide) has occurred while \output is active
- [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (19.27383pt too wide) has occurred while \output is active
- [][][][]  
  []
 
 [4
 
 ]
-Overfull \hbox (14.36966pt too wide) in paragraph at lines 145--145
+Overfull \hbox (309.58345pt too wide) in paragraph at lines 139--139
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
+<Sys_Arch.png, id=193, 914.41624pt x 710.655pt>
+File: Sys_Arch.png Graphic file (type png)
+<use Sys_Arch.png>
+Package pdftex.def Info: Sys_Arch.png  used on input line 139.
+(pdftex.def)             Requested size: 325.17949pt x 252.71262pt.
 
-Overfull \hbox (19.27383pt too wide) in paragraph at lines 145--145
- [][][][]  
+Overfull \vbox (61.18648pt too high) detected at line 139
  []
 
 
 
 
-Overfull \hbox (14.36966pt too wide) has occurred while \output is active
+Overfull \hbox (309.58345pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (19.27383pt too wide) has occurred while \output is active
- [][][][]  
  []
 
 [5
 
-]
-Overfull \hbox (14.36966pt too wide) in paragraph at lines 169--169
+ <./Sys_Arch.png>]
+Overfull \hbox (309.58345pt too wide) in paragraph at lines 148--148
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
+<Python_Server_Internal_Logic_Diagram.png, id=224, 1011.78pt x 1538.74875pt>
+File: Python_Server_Internal_Logic_Diagram.png Graphic file (type png)
+<use Python_Server_Internal_Logic_Diagram.png>
+Package pdftex.def Info: Python_Server_Internal_Logic_Diagram.png  used on inpu
+t line 148.
+(pdftex.def)             Requested size: 137.01668pt x 208.37953pt.
 
-Overfull \hbox (19.27383pt too wide) in paragraph at lines 169--169
- [][][][]  
+Overfull \vbox (16.8534pt too high) detected at line 148
  []
 
 
 
 
-Overfull \hbox (14.36966pt too wide) has occurred while \output is active
+Overfull \hbox (309.58345pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (19.27383pt too wide) has occurred while \output is active
- [][][][]  
  []
 
 [6
 
-]
-Overfull \hbox (14.36966pt too wide) in paragraph at lines 181--181
+ <./Python_Server_Internal_Logic_Diagram.png>]
+Overfull \hbox (309.58345pt too wide) in paragraph at lines 157--157
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
+<Mobile_App_UI_Flow_Diagram.png, id=252, 1895.08pt x 1264.725pt>
+File: Mobile_App_UI_Flow_Diagram.png Graphic file (type png)
+<use Mobile_App_UI_Flow_Diagram.png>
+Package pdftex.def Info: Mobile_App_UI_Flow_Diagram.png  used on input line 157
+.
+(pdftex.def)             Requested size: 312.24097pt x 208.38115pt.
 
-Overfull \hbox (19.27383pt too wide) in paragraph at lines 181--181
- [][][][]  
- []
-
-<Sys_Arch.png, id=244, 914.41624pt x 710.655pt>
-File: Sys_Arch.png Graphic file (type png)
-<use Sys_Arch.png>
-Package pdftex.def Info: Sys_Arch.png  used on input line 181.
-(pdftex.def)             Requested size: 325.17949pt x 252.71262pt.
-
-Overfull \vbox (61.18648pt too high) detected at line 181
+Overfull \vbox (16.85501pt too high) detected at line 157
  []
 
 
 
 
-Overfull \hbox (14.36966pt too wide) has occurred while \output is active
+Overfull \hbox (309.58345pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (19.27383pt too wide) has occurred while \output is active
- [][][][]  
  []
 
 [7
 
- <./Sys_Arch.png>]
-Overfull \hbox (14.36966pt too wide) in paragraph at lines 190--190
+ <./Mobile_App_UI_Flow_Diagram.png>]
+Overfull \hbox (309.58345pt too wide) in paragraph at lines 170--170
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
+<sequenceDiagram.png, id=281, 2622.79875pt x 1535.7375pt>
+File: sequenceDiagram.png Graphic file (type png)
+<use sequenceDiagram.png>
+Package pdftex.def Info: sequenceDiagram.png  used on input line 170.
+(pdftex.def)             Requested size: 342.2965pt x 200.42618pt.
 
-Overfull \hbox (19.27383pt too wide) in paragraph at lines 190--190
- [][][][]  
- []
-
-<Python_Server_Internal_Logic_Diagram.png, id=276, 1011.78pt x 1538.74875pt>
-File: Python_Server_Internal_Logic_Diagram.png Graphic file (type png)
-<use Python_Server_Internal_Logic_Diagram.png>
-Package pdftex.def Info: Python_Server_Internal_Logic_Diagram.png  used on inpu
-t line 190.
-(pdftex.def)             Requested size: 137.01668pt x 208.37953pt.
-
-Overfull \vbox (16.8534pt too high) detected at line 190
+Overfull \vbox (22.50005pt too high) detected at line 170
  []
 
 
 
 
-Overfull \hbox (14.36966pt too wide) has occurred while \output is active
+Overfull \hbox (309.58345pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (19.27383pt too wide) has occurred while \output is active
- [][][][]  
  []
 
 [8
 
- <./Python_Server_Internal_Logic_Diagram.png>]
-Overfull \hbox (14.36966pt too wide) in paragraph at lines 199--199
+ <./sequenceDiagram.png>]
+Overfull \hbox (309.58345pt too wide) in paragraph at lines 179--179
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
+<Scene_Change_Detection_Logic_Flowchart.png, id=310, 811.03pt x 1513.655pt>
+File: Scene_Change_Detection_Logic_Flowchart.png Graphic file (type png)
+<use Scene_Change_Detection_Logic_Flowchart.png>
+Package pdftex.def Info: Scene_Change_Detection_Logic_Flowchart.png  used on in
+put line 179.
+(pdftex.def)             Requested size: 111.65pt x 208.3765pt.
 
-Overfull \hbox (19.27383pt too wide) in paragraph at lines 199--199
- [][][][]  
- []
-
-<Mobile_App_UI_Flow_Diagram.png, id=304, 1895.08pt x 1264.725pt>
-File: Mobile_App_UI_Flow_Diagram.png Graphic file (type png)
-<use Mobile_App_UI_Flow_Diagram.png>
-Package pdftex.def Info: Mobile_App_UI_Flow_Diagram.png  used on input line 199
-.
-(pdftex.def)             Requested size: 312.24097pt x 208.38115pt.
-
-Overfull \vbox (16.85501pt too high) detected at line 199
+Overfull \vbox (27.25035pt too high) detected at line 179
  []
 
 
 
 
-Overfull \hbox (14.36966pt too wide) has occurred while \output is active
+Overfull \hbox (309.58345pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (19.27383pt too wide) has occurred while \output is active
- [][][][]  
  []
 
 [9
 
- <./Mobile_App_UI_Flow_Diagram.png>]
-Overfull \hbox (14.36966pt too wide) in paragraph at lines 212--212
+ <./Scene_Change_Detection_Logic_Flowchart.png>]
+Overfull \hbox (309.58345pt too wide) in paragraph at lines 196--196
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 
-Overfull \hbox (19.27383pt too wide) in paragraph at lines 212--212
- [][][][]  
- []
-
-<sequenceDiagram.png, id=332, 2622.79875pt x 1535.7375pt>
-File: sequenceDiagram.png Graphic file (type png)
-<use sequenceDiagram.png>
-Package pdftex.def Info: sequenceDiagram.png  used on input line 212.
-(pdftex.def)             Requested size: 342.2965pt x 200.42618pt.
-
-Overfull \vbox (22.50005pt too high) detected at line 212
- []
 
 
-
-
-Overfull \hbox (14.36966pt too wide) has occurred while \output is active
+Overfull \hbox (309.58345pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (19.27383pt too wide) has occurred while \output is active
- [][][][]  
  []
 
 [10
 
- <./sequenceDiagram.png>]
-Overfull \hbox (14.36966pt too wide) in paragraph at lines 221--221
+]
+Overfull \hbox (309.58345pt too wide) in paragraph at lines 213--213
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 
-Overfull \hbox (19.27383pt too wide) in paragraph at lines 221--221
- [][][][]  
- []
-
-<Scene_Change_Detection_Logic_Flowchart.png, id=361, 811.03pt x 1513.655pt>
-File: Scene_Change_Detection_Logic_Flowchart.png Graphic file (type png)
-<use Scene_Change_Detection_Logic_Flowchart.png>
-Package pdftex.def Info: Scene_Change_Detection_Logic_Flowchart.png  used on in
-put line 221.
-(pdftex.def)             Requested size: 111.65pt x 208.3765pt.
-
-Overfull \vbox (27.25035pt too high) detected at line 221
- []
 
 
-
-
-Overfull \hbox (14.36966pt too wide) has occurred while \output is active
+Overfull \hbox (309.58345pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (19.27383pt too wide) has occurred while \output is active
- [][][][]  
  []
 
 [11
 
- <./Scene_Change_Detection_Logic_Flowchart.png>]
-Overfull \hbox (14.36966pt too wide) in paragraph at lines 239--239
+]
+Overfull \hbox (309.58345pt too wide) in paragraph at lines 223--223
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
+<Security_Flow_Diagram.png, id=392, 1930.21124pt x 524.96124pt>
+File: Security_Flow_Diagram.png Graphic file (type png)
+<use Security_Flow_Diagram.png>
+Package pdftex.def Info: Security_Flow_Diagram.png  used on input line 223.
+(pdftex.def)             Requested size: 308.04489pt x 83.77924pt.
 
-Overfull \hbox (19.27383pt too wide) in paragraph at lines 239--239
- [][][][]  
- []
 
 
-
-
-Overfull \hbox (14.36966pt too wide) has occurred while \output is active
+Overfull \hbox (309.58345pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (19.27383pt too wide) has occurred while \output is active
- [][][][]  
  []
 
 [12
 
-]
-Overfull \hbox (14.36966pt too wide) in paragraph at lines 241--241
+ <./Security_Flow_Diagram.png>]
+Overfull \hbox (309.58345pt too wide) in paragraph at lines 241--241
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 
-Overfull \hbox (19.27383pt too wide) in paragraph at lines 241--241
- [][][][]  
+Overfull \vbox (45.0587pt too high) detected at line 241
  []
 
-\openout4 = `presentation.vrb'.
 
 
-Overfull \hbox (14.36966pt too wide) in paragraph at lines 281--281
+
+Overfull \hbox (309.58345pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (19.27383pt too wide) in paragraph at lines 281--281
- [][][][]  
- []
-
-(presentation.vrb
-(C:\Users\user\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
-File: lstlang1.sty 2024/09/23 1.10c listings language file
-)
-(C:\Users\user\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
-File: lstlang1.sty 2024/09/23 1.10c listings language file
-)
-(C:\Users\user\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
-File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
-))
-Overfull \vbox (137.22884pt too high) detected at line 281
- []
-
-
-
-
-Overfull \hbox (14.36966pt too wide) has occurred while \output is active
- [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (19.27383pt too wide) has occurred while \output is active
- [][][][]  
  []
 
 [13
 
 ]
-Overfull \hbox (14.36966pt too wide) in paragraph at lines 299--299
+Overfull \hbox (309.58345pt too wide) in paragraph at lines 258--258
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 
-Overfull \hbox (19.27383pt too wide) in paragraph at lines 299--299
- [][][][]  
- []
 
 
-Overfull \vbox (2.12952pt too high) detected at line 299
- []
-
-
-
-
-Overfull \hbox (14.36966pt too wide) has occurred while \output is active
+Overfull \hbox (309.58345pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (19.27383pt too wide) has occurred while \output is active
- [][][][]  
  []
 
 [14
-
-]
-Overfull \hbox (14.36966pt too wide) in paragraph at lines 309--309
- [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (19.27383pt too wide) in paragraph at lines 309--309
- [][][][]  
- []
-
-<Security_Flow_Diagram.png, id=471, 1930.21124pt x 524.96124pt>
-File: Security_Flow_Diagram.png Graphic file (type png)
-<use Security_Flow_Diagram.png>
-Package pdftex.def Info: Security_Flow_Diagram.png  used on input line 309.
-(pdftex.def)             Requested size: 308.04489pt x 83.77924pt.
-
-
-
-Overfull \hbox (14.36966pt too wide) has occurred while \output is active
- [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (19.27383pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[15
-
- <./Security_Flow_Diagram.png>]
-Overfull \hbox (14.36966pt too wide) in paragraph at lines 327--327
- [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (19.27383pt too wide) in paragraph at lines 327--327
- [][][][]  
- []
-
-
-
-
-Overfull \hbox (14.36966pt too wide) has occurred while \output is active
- [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (19.27383pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[16
 
 ]
 \tf@nav=\write6
@@ -1481,27 +1265,26 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `presentation.out' has not changed.
-(rerunfilecheck)             Checksum: 463146AE3E7A75F2856FB41A99D2C29E;956.
+(rerunfilecheck)             Checksum: 7DEFC554ABC4799E90D1A2746478EF48;1016.
  ) 
 Here is how much of TeX's memory you used:
- 23916 strings out of 473523
- 457374 string characters out of 5715115
- 1231306 words of memory out of 5000000
- 46642 multiletter control sequences out of 15000+600000
- 562408 words of font info for 48 fonts, out of 8000000 for 9000
+ 23295 strings out of 473523
+ 450258 string characters out of 5715115
+ 814524 words of memory out of 5000000
+ 46039 multiletter control sequences out of 15000+600000
+ 562240 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,15n,123p,389b,1431s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,15n,123p,421b,748s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\user\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcss1
 440.pk><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
 /cm/cmss10.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/
 amsfonts/cm/cmss12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1
 /public/amsfonts/cm/cmss8.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/font
 s/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/user/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Users/user/AppData/Local/P
-rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on presentation.pdf (16 pages, 1240357 bytes).
+iKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb>
+Output written on presentation.pdf (14 pages, 1212254 bytes).
 PDF statistics:
- 566 PDF objects out of 1000 (max. 8388607)
- 40 named destinations out of 1000 (max. 500000)
- 188 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 510 PDF objects out of 1000 (max. 8388607)
+ 37 named destinations out of 1000 (max. 500000)
+ 196 words of extra memory for PDF output out of 10000 (max. 10000000)
 

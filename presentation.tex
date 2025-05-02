@@ -43,11 +43,20 @@
 }
 
 
-\title{VisionVault: An Enhanced Wearable Camera System}
-\subtitle{From Manual Capture to Automatic Auditory Descriptions}
-\author{Analysis based on Project Files}
+\title{VisionVault: A Wearable AI Camera System}
+\subtitle{Real-time Environmental Description via AI and TTS}
+\author{
+    Touhidul Alam Seyam \\ 
+    Eftekhar Uddin \\ 
+    Mim Chowdhury \\ 
+    Mahin Ullah \\ 
+    Bajpakhi Muntasir
+}
 \date{\today}
-\institute{Project Overview}
+\institute{
+    Microprocessor Lab \\ 
+    Professor Radiathun Tasnia, Junior Lecturer
+}
 
 \begin{document}
 
@@ -67,20 +76,20 @@
 \begin{frame}{What is VisionVault?}
   \begin{columns}[T] % Align columns at the top
     \begin{column}{0.6\textwidth}
-      \textbf{Core Idea:} An innovative project integrating an ESP32-CAM on goggles to capture and document moments.
+      \textbf{Core Idea:} An innovative project integrating an ESP32-CAM on goggles to capture and document moments using AI.
       \vspace{1em}
       \begin{itemize}
-        \item Transforms how moments are captured/documented.
-        \item Allows users to stream live video.
-        \item Capture images and generate descriptions via AI.
-        \item Aims for hands-free operation.
+        \item Provides real-time auditory descriptions of the surroundings.
+        \item Allows users to stream live video (implicitly).
+        \item Generates scene descriptions via AI (Google Gemini).
+        \item Aims for hands-free operation via a mobile app.
       \end{itemize}
        \vspace{1em}
        \textbf{Applications:}
        \begin{itemize}
-        \item Personal memory archival.
-        \item Remote surveillance.
-        \item Assistive technology.
+        \item Assistive technology for the visually impaired.
+        \item Contextual awareness tool.
+        \item Personal memory archival (with descriptions).
       \end{itemize}
     \end{column}
     \begin{column}{0.4\textwidth}
@@ -91,76 +100,25 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}[fragile]{Initial Concept: Key Components}
- \frametitle{Original Workflow (ESP32 \textrightarrow Python \textrightarrow Console)}
+% --- Workflow Section ---
+\section{System Workflow}
+
+\begin{frame}{System Workflow Overview}
+  \frametitle{ESP32 \textrightarrow Python Server \textrightarrow Mobile App \textrightarrow TTS}
     \begin{itemize}
-        \item \textbf{ESP32-CAM (`camera-feed.ino`):} Connects to WiFi, configures camera, streams MJPEG video via HTTP.
-        \item \textbf{Python Script (`take-pic.py`):} Runs on host PC, connects to ESP32 stream, displays feed using OpenCV.
-        \item \textbf{Manual Capture:} User presses 'c' key on the host PC.
-        \item \textbf{AI Description:} Captured image (`captured\_image.jpg`) sent to Google Gemini API.
-        \item \textbf{Output:} Description printed to the host PC console.
-    \end{itemize}
-
-    \vspace{0.5em}
-    \textbf{Trigger Example (Original `take-pic.py`):}
-    \begin{lstlisting}[style=custompy, firstnumber=58]
-        # Check for key presses
-        key = cv2.waitKey(1) & 0xFF
-
-        # Save the image when 'c' is pressed
-        if key == ord('c'):
-            filename = f"captured_image.jpg"
-            cv2.imwrite(filename, frame)
-            print(f"Image saved as {filename}")
-            # Create a separate thread to handle content generation
-            threading.Thread(target=generate_content).start()
-
-        #Press 'q' to quit the video display
-        if key == ord('q'):
-            break
-    \end{lstlisting}
-\end{frame}
-
-% --- Enhancement Section ---
-\section{Enhancements and New Workflow}
-
-\begin{frame}{Motivation for Enhancement}
-    \frametitle{Limitations of Initial Concept}
-    \begin{itemize}
-        \item Requires user interaction on the host PC (keyboard press).
-        \item Not truly hands-free or mobile.
-        \item Output is only text on the console.
-        \item \textbf{Accessibility Challenge:} How does a visually impaired user know \textit{when} to press 'c'?
-    \end{itemize}
-    \vspace{1em}
-    \textbf{Goals for Enhancement:}
-    \begin{itemize}
-        \item Create a mobile interface (React Native).
-        \item Provide auditory feedback (Text-to-Speech).
-        \item Enable automatic, periodic descriptions.
-        \item Add user controls via the mobile app.
-        \item Improve robustness and add security.
-        \item Optimize API usage (Scene Change Detection).
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Enhanced Workflow Overview}
-  \frametitle{Mobile App \textrightarrow Python Server \textrightarrow TTS}
-    Based on `WORKFLOW.md`:
-    \begin{itemize}
-        \item \textbf{ESP32-CAM:} Unchanged (streams video).
+        \item \textbf{ESP32-CAM:} Streams video continuously over local WiFi.
         \item \textbf{Python Backend Server:}
             \begin{itemize}
-                \item Fetches stream continuously (with reconnection).
-                \item Runs WebSocket Server (WSS) for mobile app communication.
-                \item Manages client state (active/inactive, interval).
+                \item Fetches stream (with reconnection).
+                \item Runs WebSocket Server (WSS) for secure mobile app communication.
+                \item Manages client state (active/inactive, description interval).
                 \item \textbf{Automatic Mode:} Periodically checks for scene changes. If changed, sends frame to API, broadcasts description to active clients.
                 \item Handles commands from app (`start`, `stop`, `set\_interval`, `describe\_now`).
             \end{itemize}
          \item \textbf{React Native Mobile App:}
             \begin{itemize}
-                \item Connects to Python Server (WSS, with reconnection).
-                \item UI: Start/Stop, Interval config, Describe Now, History, Status.
+                \item Connects securely to Python Server (WSS, with reconnection).
+                \item UI: Start/Stop, Interval config, Describe Now, History, Status indicators.
                 \item Sends commands to server.
                 \item Receives descriptions/errors.
                 \item Provides TTS output and Haptic feedback.
@@ -171,7 +129,7 @@
 % --- Architecture Section ---
 \section{System Architecture}
 
-\begin{frame}{Enhanced System Architecture}
+\begin{frame}{System Architecture Diagram}
     \frametitle{Overall Component Interaction}
     \begin{figure}
         \centering
@@ -225,7 +183,6 @@
 
 \begin{frame}{Technology Stack}
     \frametitle{Key Technologies Used}
-    Based on `WORKFLOW.md`:
     \begin{itemize}
         \item \textbf{Hardware:} ESP32-CAM
         \item \textbf{Video Streaming:} MJPEG over HTTP
@@ -238,54 +195,11 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Code Snippet: ESP32-CAM Setup}
-  \frametitle{From `camera-feed.ino` (Camera Configuration)}
-    \begin{lstlisting}[style=customc, firstnumber=88, numbers=none]
-  // ... (Pin definitions) ...
-
-  camera_config_t config;
-  config.ledc_channel = LEDC_CHANNEL_0;
-  config.ledc_timer = LEDC_TIMER_0;
-  config.pin_d0 = Y2_GPIO_NUM;
-  // ... (Assign all camera pins) ...
-  config.pin_xclk = XCLK_GPIO_NUM;
-  config.pin_pclk = PCLK_GPIO_NUM;
-  config.pin_vsync = VSYNC_GPIO_NUM;
-  config.pin_href = HREF_GPIO_NUM;
-  config.pin_sscb_sda = SIOD_GPIO_NUM;
-  config.pin_sscb_scl = SIOC_GPIO_NUM;
-  config.pin_pwdn = PWDN_GPIO_NUM;
-  config.pin_reset = RESET_GPIO_NUM;
-  config.xclk_freq_hz = 20000000;
-  config.pixel_format = PIXFORMAT_JPEG; // Important for MJPEG stream
-
-  // Frame size and quality based on PSRAM
-  if(psramFound()){
-    config.frame_size = FRAMESIZE_VGA; // Or other size
-    config.jpeg_quality = 10; // 0-63 lower means higher quality
-    config.fb_count = 2;
-  } else {
-    config.frame_size = FRAMESIZE_QQVGA;
-    config.jpeg_quality = 15;
-    config.fb_count = 1;
-  }
-
-  // Camera init
-  esp_err_t err = esp_camera_init(&config);
-  if (err != ESP_OK) { // Error handling
-    Serial.printf("Camera init failed with error 0x%x", err);
-    return;
-  }
-  // ... (WiFi connection and start server) ...
-    \end{lstlisting}
-\end{frame}
-
 % --- Security Section ---
 \section{Security Aspects}
 
 \begin{frame}{Security Considerations}
     \frametitle{Risks and Mitigations (Trusted LAN Focus)}
-     Highlights from `WORKFLOW.md`:
      \begin{itemize}
         \item \textbf{Network:} Assumes trusted WiFi (WPA2/WPA3). Public networks are risky.
         \item \textbf{ESP32 Stream (HTTP):} Unencrypted. Rely on WiFi security. HTTPS on ESP32 is challenging.
@@ -309,21 +223,38 @@
 \end{frame}
 
 
+% --- Contributions Section ---
+\section{Team Contributions}
+
+\begin{frame}{Individual Contributions}
+    \begin{itemize}
+        \item \textbf{Touhidul Alam Seyam:} Led project design and integration. Developed the core Python backend server including asynchronous stream handling, WebSocket communication (WSS), scene change detection, and Google Gemini API integration. Implemented core React Native application logic and features. Designed system architecture and workflow. Created diagrams and presentation structure.
+
+        \item \textbf{Eftekhar Uddin:} Configured and flashed the ESP32-CAM firmware. Conducted initial video stream testing and debugging. Assisted with Python server frame fetching setup.
+
+        \item \textbf{Mim Chowdhury:} Designed and implemented the user interface (UI) and user experience (UX) for the React Native mobile application. Integrated Text-to-Speech (TTS) and Haptics feedback components.
+
+        \item \textbf{Mahin Ullah:} Performed integration testing between the Python server, mobile app, and ESP32-CAM stream. Researched WebSocket libraries and contributed to debugging network communication issues.
+
+        \item \textbf{Bajpakhi Muntasir:} Contributed to project documentation, including the initial README. Researched Google Generative AI API capabilities and usage patterns relevant to the project. Assisted with overall system testing.
+    \end{itemize}
+\end{frame}
+
 % --- Conclusion Section ---
 \section{Conclusion}
 
 \begin{frame}{Summary}
-    \frametitle{VisionVault - Enhanced}
+    \frametitle{VisionVault System Overview}
     \begin{itemize}
-        \item Evolved from a simple capture tool to an assistive technology concept.
-        \item Utilizes ESP32-CAM for video streaming.
-        \item Python backend manages stream, AI interaction, and app communication via WSS.
-        \item React Native app provides user control, history, and auditory (TTS) / tactile (Haptic) feedback.
-        \item Incorporates efficiency (scene change detection) and security (WSS, Auth) measures.
-        \item Provides a robust framework for real-time environmental description.
+        \item A wearable system leveraging ESP32-CAM for continuous video input.
+        \item Python backend processes the video, interacts with AI, and manages secure mobile app communication (WSS).
+        \item Optimizes AI calls using scene change detection.
+        \item React Native app provides user control (Start/Stop, Interval, On-Demand), displays history, and delivers auditory (TTS) / tactile (Haptic) feedback.
+        \item Incorporates security measures for operation on trusted networks.
+        \item Provides a robust framework for real-time, AI-driven environmental description.
     \end{itemize}
      \vspace{1em}
-     \textbf{Next Steps would involve actual implementation based on these designs.}
+     \textbf{This design outlines the system; next steps involve implementation.}
 \end{frame}
 
 
