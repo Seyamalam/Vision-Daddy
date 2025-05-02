@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.3)  2 MAY 2025 12:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.3)  2 MAY 2025 22:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -983,271 +983,296 @@ Dictionary: translator-theorem-dictionary, Language: English
 )
 \c@lstlisting=\count360
  (presentation.nav)
-Overfull \hbox (309.58345pt too wide) in paragraph at lines 61--61
+Overfull \hbox (297.01878pt too wide) in paragraph at lines 61--61
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 
-Overfull \hbox (309.58345pt too wide) in paragraph at lines 66--66
+Overfull \hbox (297.01878pt too wide) in paragraph at lines 66--66
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 
 
 
-Overfull \hbox (309.58345pt too wide) has occurred while \output is active
+Overfull \hbox (297.01878pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 [1
 
 {C:/Users/user/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-Overfull \hbox (309.58345pt too wide) in paragraph at lines 71--71
+Overfull \hbox (297.01878pt too wide) in paragraph at lines 71--71
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 (presentation.toc)
 
 
-Overfull \hbox (309.58345pt too wide) has occurred while \output is active
+Overfull \hbox (297.01878pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 [2
 
 ]
-Overfull \hbox (309.58345pt too wide) in paragraph at lines 101--101
+Overfull \hbox (297.01878pt too wide) in paragraph at lines 101--101
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
-<vision vault.jpeg, id=136, 1027.84pt x 574.145pt>
+<vision vault.jpeg, id=142, 1027.84pt x 574.145pt>
 File: vision vault.jpeg Graphic file (type jpg)
 <use vision vault.jpeg>
 Package pdftex.def Info: vision vault.jpeg  used on input line 101.
 (pdftex.def)             Requested size: 136.91603pt x 76.47246pt.
 
-Overfull \vbox (52.50456pt too high) detected at line 101
- []
 
 
-
-
-Overfull \hbox (309.58345pt too wide) has occurred while \output is active
+Overfull \hbox (297.01878pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 [3
 
  <./vision vault.jpeg>]
-Overfull \hbox (309.58345pt too wide) in paragraph at lines 127--127
+Overfull \hbox (297.01878pt too wide) in paragraph at lines 112--112
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 
 
 
-Overfull \hbox (309.58345pt too wide) has occurred while \output is active
+Overfull \hbox (297.01878pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 [4
 
 ]
-Overfull \hbox (309.58345pt too wide) in paragraph at lines 139--139
+Overfull \hbox (297.01878pt too wide) in paragraph at lines 124--124
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
-<Sys_Arch.png, id=193, 914.41624pt x 710.655pt>
-File: Sys_Arch.png Graphic file (type png)
-<use Sys_Arch.png>
-Package pdftex.def Info: Sys_Arch.png  used on input line 139.
-(pdftex.def)             Requested size: 325.17949pt x 252.71262pt.
-
-Overfull \vbox (61.18648pt too high) detected at line 139
- []
 
 
 
-
-Overfull \hbox (309.58345pt too wide) has occurred while \output is active
+Overfull \hbox (297.01878pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 [5
 
- <./Sys_Arch.png>]
-Overfull \hbox (309.58345pt too wide) in paragraph at lines 148--148
+]
+Overfull \hbox (297.01878pt too wide) in paragraph at lines 135--135
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
-<Python_Server_Internal_Logic_Diagram.png, id=224, 1011.78pt x 1538.74875pt>
-File: Python_Server_Internal_Logic_Diagram.png Graphic file (type png)
-<use Python_Server_Internal_Logic_Diagram.png>
-Package pdftex.def Info: Python_Server_Internal_Logic_Diagram.png  used on inpu
-t line 148.
-(pdftex.def)             Requested size: 137.01668pt x 208.37953pt.
-
-Overfull \vbox (16.8534pt too high) detected at line 148
- []
 
 
 
-
-Overfull \hbox (309.58345pt too wide) has occurred while \output is active
+Overfull \hbox (297.01878pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 [6
 
- <./Python_Server_Internal_Logic_Diagram.png>]
-Overfull \hbox (309.58345pt too wide) in paragraph at lines 157--157
+]
+Overfull \hbox (297.01878pt too wide) in paragraph at lines 161--161
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
-<Mobile_App_UI_Flow_Diagram.png, id=252, 1895.08pt x 1264.725pt>
-File: Mobile_App_UI_Flow_Diagram.png Graphic file (type png)
-<use Mobile_App_UI_Flow_Diagram.png>
-Package pdftex.def Info: Mobile_App_UI_Flow_Diagram.png  used on input line 157
-.
-(pdftex.def)             Requested size: 312.24097pt x 208.38115pt.
-
-Overfull \vbox (16.85501pt too high) detected at line 157
- []
 
 
 
-
-Overfull \hbox (309.58345pt too wide) has occurred while \output is active
+Overfull \hbox (297.01878pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 [7
 
- <./Mobile_App_UI_Flow_Diagram.png>]
-Overfull \hbox (309.58345pt too wide) in paragraph at lines 170--170
+]
+Overfull \hbox (297.01878pt too wide) in paragraph at lines 173--173
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
-<sequenceDiagram.png, id=281, 2622.79875pt x 1535.7375pt>
-File: sequenceDiagram.png Graphic file (type png)
-<use sequenceDiagram.png>
-Package pdftex.def Info: sequenceDiagram.png  used on input line 170.
-(pdftex.def)             Requested size: 342.2965pt x 200.42618pt.
+<Sys_Arch.png, id=282, 914.41624pt x 710.655pt>
+File: Sys_Arch.png Graphic file (type png)
+<use Sys_Arch.png>
+Package pdftex.def Info: Sys_Arch.png  used on input line 173.
+(pdftex.def)             Requested size: 256.72147pt x 199.51338pt.
 
-Overfull \vbox (22.50005pt too high) detected at line 170
+Overfull \vbox (7.98724pt too high) detected at line 173
  []
 
 
 
 
-Overfull \hbox (309.58345pt too wide) has occurred while \output is active
+Overfull \hbox (297.01878pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 [8
 
- <./sequenceDiagram.png>]
-Overfull \hbox (309.58345pt too wide) in paragraph at lines 179--179
+ <./Sys_Arch.png>]
+Overfull \hbox (297.01878pt too wide) in paragraph at lines 182--182
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
-<Scene_Change_Detection_Logic_Flowchart.png, id=310, 811.03pt x 1513.655pt>
-File: Scene_Change_Detection_Logic_Flowchart.png Graphic file (type png)
-<use Scene_Change_Detection_Logic_Flowchart.png>
-Package pdftex.def Info: Scene_Change_Detection_Logic_Flowchart.png  used on in
-put line 179.
-(pdftex.def)             Requested size: 111.65pt x 208.3765pt.
+<Python_Server_Internal_Logic_Diagram.png, id=313, 1011.78pt x 1538.74875pt>
+File: Python_Server_Internal_Logic_Diagram.png Graphic file (type png)
+<use Python_Server_Internal_Logic_Diagram.png>
+Package pdftex.def Info: Python_Server_Internal_Logic_Diagram.png  used on inpu
+t line 182.
+(pdftex.def)             Requested size: 128.44832pt x 195.34848pt.
 
-Overfull \vbox (27.25035pt too high) detected at line 179
+Overfull \vbox (3.82234pt too high) detected at line 182
  []
 
 
 
 
-Overfull \hbox (309.58345pt too wide) has occurred while \output is active
+Overfull \hbox (297.01878pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 [9
 
- <./Scene_Change_Detection_Logic_Flowchart.png>]
-Overfull \hbox (309.58345pt too wide) in paragraph at lines 196--196
+ <./Python_Server_Internal_Logic_Diagram.png>]
+Overfull \hbox (297.01878pt too wide) in paragraph at lines 191--191
  [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+<Mobile_App_UI_Flow_Diagram.png, id=341, 1895.08pt x 1264.725pt>
+File: Mobile_App_UI_Flow_Diagram.png Graphic file (type png)
+<use Mobile_App_UI_Flow_Diagram.png>
+Package pdftex.def Info: Mobile_App_UI_Flow_Diagram.png  used on input line 191
+.
+(pdftex.def)             Requested size: 292.72229pt x 195.35492pt.
+
+Overfull \vbox (3.82878pt too high) detected at line 191
  []
 
 
 
 
-Overfull \hbox (309.58345pt too wide) has occurred while \output is active
+Overfull \hbox (297.01878pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 [10
 
-]
-Overfull \hbox (309.58345pt too wide) in paragraph at lines 213--213
+ <./Mobile_App_UI_Flow_Diagram.png>]
+Overfull \hbox (297.01878pt too wide) in paragraph at lines 203--203
  [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+<Scene_Change_Detection_Logic_Flowchart.png, id=369, 811.03pt x 1513.655pt>
+File: Scene_Change_Detection_Logic_Flowchart.png Graphic file (type png)
+<use Scene_Change_Detection_Logic_Flowchart.png>
+Package pdftex.def Info: Scene_Change_Detection_Logic_Flowchart.png  used on in
+put line 203.
+(pdftex.def)             Requested size: 111.65pt x 208.3765pt.
+
+Overfull \vbox (27.25035pt too high) detected at line 203
  []
 
 
 
 
-Overfull \hbox (309.58345pt too wide) has occurred while \output is active
+Overfull \hbox (297.01878pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 [11
 
-]
-Overfull \hbox (309.58345pt too wide) in paragraph at lines 223--223
+ <./Scene_Change_Detection_Logic_Flowchart.png>]
+Overfull \hbox (297.01878pt too wide) in paragraph at lines 220--220
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
-<Security_Flow_Diagram.png, id=392, 1930.21124pt x 524.96124pt>
-File: Security_Flow_Diagram.png Graphic file (type png)
-<use Security_Flow_Diagram.png>
-Package pdftex.def Info: Security_Flow_Diagram.png  used on input line 223.
-(pdftex.def)             Requested size: 308.04489pt x 83.77924pt.
 
 
 
-Overfull \hbox (309.58345pt too wide) has occurred while \output is active
+Overfull \hbox (297.01878pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 [12
 
- <./Security_Flow_Diagram.png>]
-Overfull \hbox (309.58345pt too wide) in paragraph at lines 241--241
+]
+Overfull \hbox (297.01878pt too wide) in paragraph at lines 230--230
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
+<Security_Flow_Diagram.png, id=423, 1930.21124pt x 524.96124pt>
+File: Security_Flow_Diagram.png Graphic file (type png)
+<use Security_Flow_Diagram.png>
+Package pdftex.def Info: Security_Flow_Diagram.png  used on input line 230.
+(pdftex.def)             Requested size: 308.04489pt x 83.77924pt.
 
-Overfull \vbox (45.0587pt too high) detected at line 241
- []
 
 
-
-
-Overfull \hbox (309.58345pt too wide) has occurred while \output is active
+Overfull \hbox (297.01878pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 [13
 
-]
-Overfull \hbox (309.58345pt too wide) in paragraph at lines 258--258
+ <./Security_Flow_Diagram.png>]
+Overfull \hbox (297.01878pt too wide) in paragraph at lines 247--247
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 
 
 
-Overfull \hbox (309.58345pt too wide) has occurred while \output is active
+Overfull \hbox (297.01878pt too wide) has occurred while \output is active
  [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 [14
+
+]
+Overfull \hbox (297.01878pt too wide) in paragraph at lines 268--268
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
+
+
+Overfull \hbox (297.01878pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[15
+
+]
+Overfull \hbox (297.01878pt too wide) in paragraph at lines 281--281
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
+
+
+Overfull \hbox (297.01878pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[16
+
+]
+Overfull \hbox (297.01878pt too wide) in paragraph at lines 298--298
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
+
+
+Overfull \hbox (297.01878pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+[17
 
 ]
 \tf@nav=\write6
@@ -1265,26 +1290,27 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `presentation.out' has not changed.
-(rerunfilecheck)             Checksum: 7DEFC554ABC4799E90D1A2746478EF48;1016.
+(rerunfilecheck)             Checksum: ED03B1E4862AB41419EB96EED2BAC286;1132.
  ) 
 Here is how much of TeX's memory you used:
- 23295 strings out of 473523
- 450258 string characters out of 5715115
- 814524 words of memory out of 5000000
- 46039 multiletter control sequences out of 15000+600000
- 562240 words of font info for 47 fonts, out of 8000000 for 9000
+ 23308 strings out of 473523
+ 450262 string characters out of 5715115
+ 816435 words of memory out of 5000000
+ 46044 multiletter control sequences out of 15000+600000
+ 562840 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,15n,123p,421b,748s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,15n,123p,440b,795s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\user\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcss1
 440.pk><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
 /cm/cmss10.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/
 amsfonts/cm/cmss12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1
 /public/amsfonts/cm/cmss8.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/font
-s/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/user/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb>
-Output written on presentation.pdf (14 pages, 1212254 bytes).
+s/type1/public/amsfonts/cm/cmss9.pfb><C:/Users/user/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/user/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb>
+Output written on presentation.pdf (17 pages, 1122294 bytes).
 PDF statistics:
- 510 PDF objects out of 1000 (max. 8388607)
- 37 named destinations out of 1000 (max. 500000)
- 196 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 600 PDF objects out of 1000 (max. 8388607)
+ 44 named destinations out of 1000 (max. 500000)
+ 199 words of extra memory for PDF output out of 10000 (max. 10000000)
 

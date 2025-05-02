@@ -43,19 +43,19 @@
 }
 
 
-\title{VisionVault: A Wearable AI Camera System}
+\title[IntelliGaze]{IntelliGaze: A Wearable AI Camera System}
 \subtitle{Real-time Environmental Description via AI and TTS}
-\author{
-    Touhidul Alam Seyam \\ 
-    Eftekhar Uddin \\ 
-    Mim Chowdhury \\ 
-    Mahin Ullah \\ 
-    Bajpakhi Muntasir
+\author[Seyam  , Eftekhar  , Mim  , Mahin  , Muntasir  ]{
+    Touhidul Alam Seyam (230240003)\\ 
+    Eftakar Uddin (230240004) \\ 
+    Tasmim Akther Mim (230240025) \\ 
+    Shafiul Azam Mahin (230240022) \\ 
+    Muntasir Rahman (230240002)
 }
 \date{\today}
 \institute{
     Microprocessor Lab \\ 
-    Professor Radiathun Tasnia, Junior Lecturer
+    Future Professor Radiathun Tasnia,\\ Junior Lecturer, \\ BGC Trust University Bangladesh
 }
 
 \begin{document}
@@ -73,8 +73,9 @@
 % --- Introduction Section ---
 \section{Introduction}
 
-\begin{frame}{What is VisionVault?}
+\begin{frame}{What is IntelliGaze?}
   \begin{columns}[T] % Align columns at the top
+    \footnotesize
     \begin{column}{0.6\textwidth}
       \textbf{Core Idea:} An innovative project integrating an ESP32-CAM on goggles to capture and document moments using AI.
       \vspace{1em}
@@ -95,9 +96,42 @@
     \begin{column}{0.4\textwidth}
       \centering
       \includegraphics[width=\linewidth]{"vision vault.jpeg"} \\ % Assuming image is in assets folder relative path needed or same folder
-      \tiny Demo Image Placeholder
     \end{column}
   \end{columns}
+\end{frame}
+
+% --- Problem Statement Frame ---
+\begin{frame}{Problem Statement}
+  \frametitle{Challenges Addressed}
+  \begin{itemize}
+    \item Challenges faced by visually impaired individuals in navigating and understanding their environment.
+    \item Need for real-time, hands-free contextual information.
+    \item Desire for an accessible way to document and recall visual experiences.
+    \item Existing assistive technologies may lack real-time AI-powered descriptive capabilities or seamless integration.
+  \end{itemize}
+\end{frame}
+
+% --- Our Solution Frame ---
+\begin{frame}{Our Solution: IntelliGaze}
+  \frametitle{How IntelliGaze Helps}
+  \begin{itemize}
+    \item Provides immediate auditory feedback about the surroundings through AI analysis and TTS.
+    \item Offers a wearable, hands-free experience via goggles and a mobile app.
+    \item Leverages the power of Google Gemini for intelligent scene description.
+    \item Creates a potential tool for enhanced independence and richer environmental interaction for the visually impaired.
+    \item Serves as a novel personal memory archival system with generated context.
+  \end{itemize}
+\end{frame}
+
+% --- Justification Frame ---
+\begin{frame}{Justification}
+  \frametitle{Why IntelliGaze is Needed}
+  \begin{itemize}
+    \item Addresses the limitations of existing assistive tools by providing real-time, AI-driven environmental descriptions.
+    \item Leverages accessible hardware (ESP32-CAM) and powerful AI (Google Gemini) for a cost-effective yet capable solution.
+    \item Offers a hands-free, wearable approach for seamless integration into daily life.
+    \item Provides significant value for visually impaired users (enhanced navigation, safety, context) and broader applications (memory assistance, context awareness).
+  \end{itemize}
 \end{frame}
 
 % --- Workflow Section ---
@@ -133,7 +167,7 @@
     \frametitle{Overall Component Interaction}
     \begin{figure}
         \centering
-        \includegraphics[width=0.95\textwidth]{Sys_Arch.png} % Use generated PNG
+        \includegraphics[width=0.75\textwidth]{Sys_Arch.png} % Use generated PNG
         \caption{High-level view of components and communication protocols.}
     \end{figure}
 \end{frame}
@@ -142,7 +176,7 @@
     \frametitle{Modular Design}
      \begin{figure}
         \centering
-        \includegraphics[height=0.8\textheight, width=0.8\textwidth, keepaspectratio]{Python_Server_Internal_Logic_Diagram.png} % Use generated PNG
+        \includegraphics[height=0.75\textheight, width=0.8\textwidth, keepaspectratio]{Python_Server_Internal_Logic_Diagram.png} % Use generated PNG
         \caption{Key internal modules and data flow within the Python server.}
     \end{figure}
 \end{frame}
@@ -151,23 +185,13 @@
     \frametitle{User Interaction States}
      \begin{figure}
         \centering
-        \includegraphics[height=0.8\textheight, width=\textwidth, keepaspectratio]{Mobile_App_UI_Flow_Diagram.png} % Use generated PNG
+        \includegraphics[height=0.75\textheight, width=\textwidth, keepaspectratio]{Mobile_App_UI_Flow_Diagram.png} % Use generated PNG
         \caption{Simplified state transitions within the React Native application.}
     \end{figure}
 \end{frame}
 
 % --- Core Logic Section ---
 \section{Core Logic and Flows}
-
-\begin{frame}{Sequence: Automatic Description}
-    \frametitle{How Continuous Description Works}
-    \begin{figure}
-        \centering
-        % Mermaid source can't be directly rendered, use the PNG
-        \includegraphics[width=\textwidth, height=0.8\textheight, keepaspectratio]{sequenceDiagram.png}
-        \caption{Sequence of events for automatic description triggered by timer.}
-    \end{figure}
-\end{frame}
 
 \begin{frame}{Algorithm: Scene Change Detection}
     \frametitle{Optimizing API Calls}
@@ -184,15 +208,25 @@
 \begin{frame}{Technology Stack}
     \frametitle{Key Technologies Used}
     \begin{itemize}
-        \item \textbf{Hardware:} ESP32-CAM
+        \item \textbf{Hardware:} ESP32-CAM WiFi Module
         \item \textbf{Video Streaming:} MJPEG over HTTP
         \item \textbf{Backend:} Python 3 with `asyncio`, `websockets`, `aiohttp`/`requests`, `opencv-python`, `scikit-image` (for SSIM), `google-generativeai`, `python-dotenv`.
-        \item \textbf{Frontend:} React Native (JavaScript/TypeScript)
+        \item \textbf{Frontend:} Expo React Native (TypeScript)
         \item \textbf{Communication:} Secure WebSockets (WSS)
         \item \textbf{AI:} Google Generative AI (Gemini API)
-        \item \textbf{Output:} Text-to-Speech (TTS) Library (React Native)
-        \item \textbf{Feedback:} Haptics API (React Native)
+        \item \textbf{Output:} Text-to-Speech (TTS) Library (Expo TTS)
+        \item \textbf{Feedback:} Haptics API (Expo Haptics)
     \end{itemize}
+\end{frame}
+
+\begin{frame}{Security Flow: WSS Authentication}
+  \frametitle{Connecting Securely}
+   \begin{figure}
+      \centering
+      % Mermaid source can't be directly rendered, use the PNG
+      \includegraphics[width=0.9\textwidth, height=0.7\textheight, keepaspectratio]{Security_Flow_Diagram.png}
+      \caption{Sequence for establishing a secure WebSocket connection with token authentication.}
+  \end{figure}
 \end{frame}
 
 % --- Security Section ---
@@ -212,31 +246,37 @@
      \end{itemize}
 \end{frame}
 
-\begin{frame}{Security Flow: WSS Authentication}
-    \frametitle{Connecting Securely}
-     \begin{figure}
-        \centering
-        % Mermaid source can't be directly rendered, use the PNG
-        \includegraphics[width=0.9\textwidth, height=0.7\textheight, keepaspectratio]{Security_Flow_Diagram.png}
-        \caption{Sequence for establishing a secure WebSocket connection with token authentication.}
-    \end{figure}
-\end{frame}
+
 
 
 % --- Contributions Section ---
 \section{Team Contributions}
 
 \begin{frame}{Individual Contributions}
+    \footnotesize
     \begin{itemize}
-        \item \textbf{Touhidul Alam Seyam:} Led project design and integration. Developed the core Python backend server including asynchronous stream handling, WebSocket communication (WSS), scene change detection, and Google Gemini API integration. Implemented core React Native application logic and features. Designed system architecture and workflow. Created diagrams and presentation structure.
+        \item \textbf{Touhidul Alam Seyam:} Will lead project design and integration. Will develop the core Python backend server including asynchronous stream handling, WebSocket communication (WSS), scene change detection, and Google Gemini API integration. Will implement core React Native application logic and features. Will design system architecture and workflow. Will create diagrams and presentation structure.
 
-        \item \textbf{Eftekhar Uddin:} Configured and flashed the ESP32-CAM firmware. Conducted initial video stream testing and debugging. Assisted with Python server frame fetching setup.
+        \item \textbf{Eftakar Uddin:} Will configure and flash the ESP32-CAM firmware. Will conduct initial video stream testing and debugging. Will assist with Python server frame fetching setup.
 
-        \item \textbf{Mim Chowdhury:} Designed and implemented the user interface (UI) and user experience (UX) for the React Native mobile application. Integrated Text-to-Speech (TTS) and Haptics feedback components.
+        \item \textbf{Tasmim Akther Mim:} Will design and implement the user interface (UI) and user experience (UX) for the Expo React Native mobile application. Will integrate Text-to-Speech (TTS) and Haptics feedback components.
 
-        \item \textbf{Mahin Ullah:} Performed integration testing between the Python server, mobile app, and ESP32-CAM stream. Researched WebSocket libraries and contributed to debugging network communication issues.
+        \item \textbf{Shafiul Azam Mahin:} Will perform integration testing between the Python server, mobile app, and ESP32-CAM stream. Will research WebSocket libraries and will contribute to debugging network communication issues.
 
-        \item \textbf{Bajpakhi Muntasir:} Contributed to project documentation, including the initial README. Researched Google Generative AI API capabilities and usage patterns relevant to the project. Assisted with overall system testing.
+        \item \textbf{Muntasir Rahman:} Will contribute to project documentation. Will research Google Generative AI API capabilities and usage patterns relevant to the project. Will assist with overall system testing.
+    \end{itemize}
+\end{frame}
+
+% --- Future Benefit Section ---
+\section{Future Benefit}
+
+\begin{frame}{Future Benefit}
+    \frametitle{Potential Impact and Next Steps}
+    \begin{itemize}
+        \item \textbf{Enhanced Accessibility:} Potential for significant improvement in independence and quality of life for visually impaired individuals.
+        \item \textbf{Broader Applications:} Can be adapted for augmented reality, professional training simulations, or automated documentation.
+        \item \textbf{Technological Advancement:} Platform for integrating more sophisticated AI models (object recognition, activity detection), sensor fusion (adding audio, GPS), or cloud integration.
+        \item \textbf{Personalization:} Future versions could learn user preferences or adapt descriptions based on context or location.
     \end{itemize}
 \end{frame}
 
@@ -244,7 +284,7 @@
 \section{Conclusion}
 
 \begin{frame}{Summary}
-    \frametitle{VisionVault System Overview}
+    \frametitle{IntelliGaze System Overview}
     \begin{itemize}
         \item A wearable system leveraging ESP32-CAM for continuous video input.
         \item Python backend processes the video, interacts with AI, and manages secure mobile app communication (WSS).
