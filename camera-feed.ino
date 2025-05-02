@@ -3,8 +3,8 @@
 #include "esp_http_server.h"
 #include "esp_timer.h"
 
-const char* ssid = "ssid";
-const char* password = "password";
+const char* ssid = "your_wifi_name";
+const char* password = "your_wifi_password";
 
 #define CAMERA_MODEL_AI_THINKER
 #define PWDN_GPIO_NUM     32

@@ -1,12 +1,18 @@
-# Vision DADDY  
+# VisionVault  
 
-Vision DADDY is an innovative project that transforms the way we capture and document moments. By integrating an ESP32-CAM mounted on goggles, this system allows users to stream a live video feed and capture images effortlessly with a keystroke. The captured images are processed through the Gemmini Vision API to generate detailed descriptions, creating a virtual memory bank.  
+VisionVault is an innovative project that transforms the way we capture and document moments. By integrating an ESP32-CAM mounted on goggles, this system allows users to stream a live video feed and capture images effortlessly with a keystroke. The captured images are processed through the Gemmini Vision API to generate detailed descriptions, creating a virtual memory bank.  
 
 ## Features  
 - **Live Video Feed**: Stream visuals from an ESP32-CAM in real-time.  
 - **Instant Image Capture**: Press "c" to save an image from the feed.  
 - **Image Description**: Generate meaningful descriptions via the Gemmini Vision API.  
 - **Hands-Free Operation**: Capture moments without using a phone or camera.  
+
+## Demo Video
+Check out the demo video to see VisionVault in action:  
+[![Demo Video](https://github.com/jaidh01/VisionVault/blob/main/assets/vision%20vault.png)](https://drive.google.com/file/d/1MdOBAaBN1NZO3tWtO9ubJmuAirmaCzpb/view?usp=sharing)
+
+*Click the image above or [this link](https://drive.google.com/file/d/1MdOBAaBN1NZO3tWtO9ubJmuAirmaCzpb/view?usp=sharing) to watch the demo video.*  
 
 ## Applications  
 - Personal memory archival  
@@ -37,8 +43,8 @@ Vision DADDY is an innovative project that transforms the way we capture and doc
 ## Installation  
 1. Clone the repository:  
    ```bash
-   git clone https://github.com/Seyamalam/Vision DADDY.git
-   cd Vision DADDY
+   git clone https://github.com/your-username/VisionVault.git
+   cd VisionVault
    ```  
 2. Install dependencies:  
    ```bash

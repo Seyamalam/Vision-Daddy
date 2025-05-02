@@ -1,0 +1,37 @@
+sequenceDiagram
+    participant User
+    participant MobileApp as Mobile App (React Native)
+    participant PythonServer as Python Backend Server
+    participant ESP32CAM as ESP32-CAM
+    participant GoogleAPI as Google Generative AI API
+
+    User->>+MobileApp: Tap "Start Describing"
+    MobileApp->>+PythonServer: Send WebSocket Command: {"command": "start"}
+    PythonServer->>PythonServer: Mark client as Active
+    PythonServer->>PythonServer: Start/Ensure Timer Loop is running (for interval 'n')
+    PythonServer-->>-MobileApp: (Optional Ack/Status Update)
+    MobileApp-->>-User: Update UI: Status Active
+
+    loop Timer Interval (every 'n' seconds)
+        PythonServer->>PythonServer: Timer Tick
+        PythonServer->>ESP32CAM: Request Latest Frame (HTTP Get)
+        Note right of PythonServer: Async frame fetching runs continuously,<br/>this might just grab the latest buffered frame.
+        ESP32CAM-->>PythonServer: MJPEG Frame Data
+        PythonServer->>PythonServer: Decode Frame
+        PythonServer->>PythonServer: Compare Frame with Last Analyzed Frame
+        alt Scene Has Changed Significantly
+            PythonServer->>+GoogleAPI: Send Image Frame (HTTPS POST)
+            GoogleAPI-->>-PythonServer: Return Description Text
+            PythonServer->>PythonServer: Store current frame as Last Analyzed Frame
+            PythonServer->>+MobileApp: Send WebSocket Message: {"type": "description", "text": "..."}
+            MobileApp->>MobileApp: Trigger Haptic Feedback
+            MobileApp->>MobileApp: Add description to History View
+            MobileApp->>MobileApp: Trigger Text-to-Speech (TTS)
+            MobileApp-->>User: Speak Description via TTS
+            MobileApp-->>-PythonServer: (No explicit ack needed)
+        else Scene Has Not Changed
+            PythonServer->>PythonServer: Skip API Call
+        end
+    end
+
+    Note over User, GoogleAPI: Process repeats until User taps "Stop"

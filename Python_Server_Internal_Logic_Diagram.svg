@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="605pt" height="920pt" viewBox="0.00 0.00 604.54 919.60">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 915.6)">
+<title>Python_Server_Internals</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-915.6 600.54,-915.6 600.54,4 -4,4"/>
+<text text-anchor="middle" x="298.27" y="-8.8" font-family="Times,serif" font-size="16.00">Python Server Internal Logic</text>
+<g id="clust1" class="cluster">
+<title>cluster_main</title>
+<path fill="white" stroke="black" d="M32.27,-35.2C32.27,-35.2 527.27,-35.2 527.27,-35.2 533.27,-35.2 539.27,-41.2 539.27,-47.2 539.27,-47.2 539.27,-891.6 539.27,-891.6 539.27,-897.6 533.27,-903.6 527.27,-903.6 527.27,-903.6 32.27,-903.6 32.27,-903.6 26.27,-903.6 20.27,-897.6 20.27,-891.6 20.27,-891.6 20.27,-47.2 20.27,-47.2 20.27,-41.2 26.27,-35.2 32.27,-35.2"/>
+<text text-anchor="middle" x="279.77" y="-887" font-family="Times,serif" font-size="14.00">Python Backend Server (Asyncio)</text>
+</g>
+<!-- stream_fetcher -->
+<g id="node1" class="node">
+<title>stream_fetcher</title>
+<polygon fill="palegreen" stroke="black" points="81.22,-666.9 81.22,-750.1 261.32,-750.1 261.32,-666.9 81.22,-666.9"/>
+<text text-anchor="middle" x="171.27" y="-733.5" font-family="Times,serif" font-size="14.00">Stream Fetcher</text>
+<polyline fill="none" stroke="black" points="81.22,-725.3 261.32,-725.3"/>
+<text text-anchor="start" x="89.22" y="-708.7" font-family="Times,serif" font-size="14.00">- Connects to ESP32 (HTTP)</text>
+<text text-anchor="start" x="89.22" y="-691.9" font-family="Times,serif" font-size="14.00">- Handles Reconnection</text>
+<text text-anchor="start" x="89.22" y="-675.1" font-family="Times,serif" font-size="14.00">- Provides Latest Frame</text>
+</g>
+<!-- description_task -->
+<g id="node5" class="node">
+<title>description_task</title>
+<polygon fill="powderblue" stroke="black" points="48.97,-488.3 48.97,-613.1 293.57,-613.1 293.57,-488.3 48.97,-488.3"/>
+<text text-anchor="middle" x="171.27" y="-596.5" font-family="Times,serif" font-size="14.00">Description Task (Periodic/On-Demand)</text>
+<polyline fill="none" stroke="black" points="48.97,-588.3 293.57,-588.3"/>
+<text text-anchor="start" x="56.97" y="-571.7" font-family="Times,serif" font-size="14.00">Scene Change Detector</text>
+<text text-anchor="start" x="56.97" y="-554.9" font-family="Times,serif" font-size="14.00">- Compares Frames (SSIM)</text>
+<polyline fill="none" stroke="black" points="48.97,-546.7 293.57,-546.7"/>
+<text text-anchor="start" x="56.97" y="-530.1" font-family="Times,serif" font-size="14.00">API Caller</text>
+<text text-anchor="start" x="56.97" y="-513.3" font-family="Times,serif" font-size="14.00">- Calls Google API (HTTPS)</text>
+<text text-anchor="start" x="56.97" y="-496.5" font-family="Times,serif" font-size="14.00">- Handles API Errors</text>
+</g>
+<!-- stream_fetcher&#45;&gt;description_task -->
+<g id="edge4" class="edge">
+<title>stream_fetcher-&gt;description_task:sc</title>
+<path fill="none" stroke="black" d="M187.15,-666.58C194.02,-653.66 203.28,-640.46 215.3,-631.6 244.02,-610.41 271.04,-641.28 293.57,-613.6 303.27,-601.68 310.51,-581.71 304.88,-572.47"/>
+<polygon fill="black" stroke="black" points="306.46,-569.35 295.93,-568.16 303.42,-575.65 306.46,-569.35"/>
+<text text-anchor="middle" x="253.78" y="-635.8" font-family="Times,serif" font-size="14.00"> Latest Frame</text>
+</g>
+<!-- websocket_server -->
+<g id="node2" class="node">
+<title>websocket_server</title>
+<polygon fill="palegreen" stroke="black" points="231.28,-317.7 231.28,-434.5 429.26,-434.5 429.26,-317.7 231.28,-317.7"/>
+<text text-anchor="middle" x="330.27" y="-417.9" font-family="Times,serif" font-size="14.00">WebSocket Server (WSS)</text>
+<polyline fill="none" stroke="black" points="231.28,-409.7 429.26,-409.7"/>
+<text text-anchor="start" x="239.28" y="-393.1" font-family="Times,serif" font-size="14.00">- Handles Client Connections</text>
+<text text-anchor="start" x="239.28" y="-376.3" font-family="Times,serif" font-size="14.00">- Authentication</text>
+<text text-anchor="start" x="239.28" y="-359.5" font-family="Times,serif" font-size="14.00">- Command Parsing</text>
+<text text-anchor="start" x="239.28" y="-342.7" font-family="Times,serif" font-size="14.00">- Rate Limiting</text>
+<text text-anchor="start" x="239.28" y="-325.9" font-family="Times,serif" font-size="14.00">- Broadcasts Descriptions/Status</text>
+</g>
+<!-- client_manager -->
+<g id="node3" class="node">
+<title>client_manager</title>
+<polygon fill="palegreen" stroke="black" points="58.22,-180.7 58.22,-263.9 264.32,-263.9 264.32,-180.7 58.22,-180.7"/>
+<text text-anchor="middle" x="161.27" y="-247.3" font-family="Times,serif" font-size="14.00">Client Manager</text>
+<polyline fill="none" stroke="black" points="58.22,-239.1 264.32,-239.1"/>
+<text text-anchor="start" x="66.22" y="-222.5" font-family="Times,serif" font-size="14.00">- Tracks Connected Clients</text>
+<text text-anchor="start" x="66.22" y="-205.7" font-family="Times,serif" font-size="14.00">- Manages Active State per Client</text>
+<text text-anchor="start" x="66.22" y="-188.9" font-family="Times,serif" font-size="14.00">- Stores Interval per Client</text>
+</g>
+<!-- websocket_server&#45;&gt;client_manager -->
+<g id="edge5" class="edge">
+<title>websocket_server-&gt;client_manager</title>
+<path fill="none" stroke="black" d="M381.4,-317.25C386.48,-305.1 386.99,-292.83 378.27,-282.4 363.79,-265.08 300.1,-270.16 278.27,-264.4 277.43,-264.18 276.59,-263.95 275.74,-263.73"/>
+<polygon fill="black" stroke="black" points="276.7,-260.36 266.12,-261.02 274.8,-267.1 276.7,-260.36"/>
+<text text-anchor="middle" x="443.47" y="-286.6" font-family="Times,serif" font-size="14.00"> Connect/Disconnect</text>
+</g>
+<!-- websocket_server&#45;&gt;client_manager -->
+<g id="edge6" class="edge">
+<title>websocket_server-&gt;client_manager</title>
+<path fill="none" stroke="black" d="M231.09,-349.41C205.94,-338.11 181.65,-322.01 166.04,-299.2 161.21,-292.16 158.52,-283.83 157.19,-275.31"/>
+<polygon fill="black" stroke="black" points="160.7,-275.25 156.31,-265.61 153.73,-275.89 160.7,-275.25"/>
+<text text-anchor="middle" x="211.15" y="-286.6" font-family="Times,serif" font-size="14.00"> Start/Stop Cmd</text>
+</g>
+<!-- websocket_server&#45;&gt;client_manager -->
+<g id="edge7" class="edge">
+<title>websocket_server-&gt;client_manager</title>
+<path fill="none" stroke="black" d="M289.31,-317.48C279.24,-305.19 267.97,-292.8 256.27,-282.4 251.82,-278.45 247.08,-274.59 242.18,-270.87"/>
+<polygon fill="black" stroke="black" points="244.57,-268.29 234.43,-265.22 240.45,-273.94 244.57,-268.29"/>
+<text text-anchor="middle" x="322.03" y="-286.6" font-family="Times,serif" font-size="14.00"> Set Interval Cmd</text>
+</g>
+<!-- timer_manager -->
+<g id="node4" class="node">
+<title>timer_manager</title>
+<polygon fill="palegreen" stroke="black" points="118.86,-43.7 118.86,-126.9 369.68,-126.9 369.68,-43.7 118.86,-43.7"/>
+<text text-anchor="middle" x="244.27" y="-110.3" font-family="Times,serif" font-size="14.00">Timer Manager</text>
+<polyline fill="none" stroke="black" points="118.86,-102.1 369.68,-102.1"/>
+<text text-anchor="start" x="126.86" y="-85.5" font-family="Times,serif" font-size="14.00">- Manages Timer Loops per Active Client</text>
+<text text-anchor="start" x="126.86" y="-68.7" font-family="Times,serif" font-size="14.00">- Uses Client Interval</text>
+<text text-anchor="start" x="126.86" y="-51.9" font-family="Times,serif" font-size="14.00">- Triggers Description Task</text>
+</g>
+<!-- websocket_server&#45;&gt;timer_manager -->
+<g id="edge8" class="edge">
+<title>websocket_server-&gt;timer_manager</title>
+<path fill="none" stroke="black" d="M429.66,-356.31C485.48,-341.47 538.13,-317.38 506.27,-282.4 477.38,-250.68 345.32,-293.77 314.04,-264.4 275,-227.75 317.79,-193.97 295.27,-145.4 293.91,-142.46 292.35,-139.55 290.66,-136.7"/>
+<polygon fill="black" stroke="black" points="293.67,-134.92 285.24,-128.5 287.83,-138.77 293.67,-134.92"/>
+<text text-anchor="middle" x="366.15" y="-218.1" font-family="Times,serif" font-size="14.00"> Start/Stop Signals</text>
+</g>
+<!-- websocket_server&#45;&gt;timer_manager -->
+<g id="edge9" class="edge">
+<title>websocket_server-&gt;timer_manager</title>
+<path fill="none" stroke="black" d="M429.62,-362.44C482.88,-350.38 534.23,-327.09 516.27,-282.4 488.45,-213.2 420.35,-164.15 359.26,-132.41"/>
+<polygon fill="black" stroke="black" points="360.98,-129.36 350.48,-127.95 357.81,-135.6 360.98,-129.36"/>
+<text text-anchor="middle" x="551.06" y="-218.1" font-family="Times,serif" font-size="14.00"> Interval Update</text>
+</g>
+<!-- websocket_server&#45;&gt;description_task -->
+<g id="edge10" class="edge">
+<title>websocket_server-&gt;description_task</title>
+<path fill="none" stroke="black" d="M260.63,-434.98C254.42,-440.89 248.37,-446.95 242.77,-453 235.28,-461.1 227.83,-469.99 220.72,-478.98"/>
+<polygon fill="black" stroke="black" points="218.03,-476.74 214.67,-486.79 223.56,-481.02 218.03,-476.74"/>
+<text text-anchor="middle" x="310.02" y="-457.2" font-family="Times,serif" font-size="14.00"> 'Describe Now' Trigger</text>
+</g>
+<!-- client_manager&#45;&gt;timer_manager -->
+<g id="edge11" class="edge">
+<title>client_manager-&gt;timer_manager</title>
+<path fill="none" stroke="black" d="M173.39,-180.56C177.74,-168.78 183.26,-156.19 189.91,-145.4 191.81,-142.31 193.88,-139.25 196.08,-136.22"/>
+<polygon fill="black" stroke="black" points="198.69,-138.57 202.04,-128.51 193.16,-134.28 198.69,-138.57"/>
+<text text-anchor="middle" x="242.59" y="-149.6" font-family="Times,serif" font-size="14.00"> Active Client Info</text>
+</g>
+<!-- timer_manager&#45;&gt;description_task -->
+<g id="edge12" class="edge">
+<title>timer_manager-&gt;description_task</title>
+<path fill="none" stroke="black" d="M118.44,-121.69C91.09,-135.45 65.51,-154.35 49.27,-180.2 -19.22,-289.19 -8.16,-356.68 53.27,-469.8 54.96,-472.91 56.82,-475.92 58.84,-478.83"/>
+<polygon fill="black" stroke="black" points="55.97,-480.84 64.86,-486.6 61.51,-476.55 55.97,-480.84"/>
+<text text-anchor="middle" x="52.97" y="-286.6" font-family="Times,serif" font-size="14.00"> Periodic Trigger</text>
+</g>
+<!-- description_task&#45;&gt;websocket_server -->
+<g id="edge13" class="edge">
+<title>description_task:api-&gt;websocket_server</title>
+<path fill="none" stroke="black" d="M47.97,-517.5C-35.23,-517.5 -0.89,-503.67 85.91,-453 126.93,-429.05 176.32,-411.87 219.93,-399.97"/>
+<polygon fill="black" stroke="black" points="220.66,-403.4 229.42,-397.45 218.86,-396.64 220.66,-403.4"/>
+<text text-anchor="middle" x="156.09" y="-457.2" font-family="Times,serif" font-size="14.00"> Description/Error/Status</text>
+</g>
+<!-- config_loader -->
+<g id="node6" class="node">
+<title>config_loader</title>
+<polygon fill="lightgrey" stroke="black" points="182.53,-803.9 182.53,-870.3 412.01,-870.3 412.01,-803.9 182.53,-803.9"/>
+<text text-anchor="middle" x="297.27" y="-853.7" font-family="Times,serif" font-size="14.00">Config Loader</text>
+<polyline fill="none" stroke="black" points="182.53,-845.5 412.01,-845.5"/>
+<text text-anchor="start" x="190.53" y="-828.9" font-family="Times,serif" font-size="14.00">- Reads .env/config file</text>
+<text text-anchor="start" x="190.53" y="-812.1" font-family="Times,serif" font-size="14.00">- Provides API Key, ESP32 URL, etc.</text>
+</g>
+<!-- config_loader&#45;&gt;stream_fetcher -->
+<g id="edge1" class="edge">
+<title>config_loader-&gt;stream_fetcher</title>
+<path fill="none" stroke="black" d="M240.37,-803.42C232.82,-797.89 225.51,-791.84 219.15,-785.4 211.75,-777.91 204.92,-769.09 198.88,-760.15"/>
+<polygon fill="black" stroke="black" points="201.82,-758.26 193.46,-751.75 195.94,-762.05 201.82,-758.26"/>
+<text text-anchor="middle" x="255.71" y="-772.8" font-family="Times,serif" font-size="14.00"> ESP32 URL</text>
+</g>
+<!-- config_loader&#45;&gt;websocket_server -->
+<g id="edge2" class="edge">
+<title>config_loader-&gt;websocket_server</title>
+<path fill="none" stroke="black" d="M338.91,-803.48C353.99,-789.09 369.28,-770.83 377.27,-750.6 425.85,-627.58 413.47,-580.22 377.27,-453 376.54,-450.42 375.69,-447.84 374.74,-445.28"/>
+<polygon fill="black" stroke="black" points="378.05,-444.11 370.95,-436.25 371.59,-446.82 378.05,-444.11"/>
+<text text-anchor="middle" x="478.18" y="-635.8" font-family="Times,serif" font-size="14.00"> Auth Token, WSS Certs</text>
+</g>
+<!-- config_loader&#45;&gt;description_task -->
+<g id="edge3" class="edge">
+<title>config_loader-&gt;description_task:api</title>
+<path fill="none" stroke="black" d="M303.69,-803.5C317.72,-728.17 346.73,-546.45 305.52,-520.58"/>
+<polygon fill="black" stroke="black" points="306.6,-517.25 296.03,-517.91 304.7,-523.99 306.6,-517.25"/>
+<text text-anchor="middle" x="349.44" y="-704.3" font-family="Times,serif" font-size="14.00"> API Key</text>
+</g>
+</g>
+</svg>

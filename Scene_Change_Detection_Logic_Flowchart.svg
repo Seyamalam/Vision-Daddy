@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="485pt" height="905pt" viewBox="0.00 0.00 485.18 905.23">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 901.23)">
+<title>Scene_Change_Logic</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-901.23 481.18,-901.23 481.18,4 -4,4"/>
+<text text-anchor="middle" x="238.59" y="-8.8" font-family="Times,serif" font-size="16.00">Python Server: Scene Change Detection Logic</text>
+<!-- start -->
+<g id="node1" class="node">
+<title>start</title>
+<ellipse fill="powderblue" stroke="black" cx="136.51" cy="-867.82" rx="70.14" ry="29.42"/>
+<text text-anchor="middle" x="136.51" y="-872.02" font-family="Times,serif" font-size="14.00">Timer Tick for</text>
+<text text-anchor="middle" x="136.51" y="-855.22" font-family="Times,serif" font-size="14.00">Active Client</text>
+</g>
+<!-- get_frame -->
+<g id="node2" class="node">
+<title>get_frame</title>
+<path fill="powderblue" stroke="black" d="M188.51,-801.4C188.51,-801.4 84.51,-801.4 84.51,-801.4 78.51,-801.4 72.51,-795.4 72.51,-789.4 72.51,-789.4 72.51,-771.8 72.51,-771.8 72.51,-765.8 78.51,-759.8 84.51,-759.8 84.51,-759.8 188.51,-759.8 188.51,-759.8 194.51,-759.8 200.51,-765.8 200.51,-771.8 200.51,-771.8 200.51,-789.4 200.51,-789.4 200.51,-795.4 194.51,-801.4 188.51,-801.4"/>
+<text text-anchor="middle" x="136.51" y="-784.8" font-family="Times,serif" font-size="14.00">Get Latest Frame</text>
+<text text-anchor="middle" x="136.51" y="-768" font-family="Times,serif" font-size="14.00">from ESP32 Stream</text>
+</g>
+<!-- start&#45;&gt;get_frame -->
+<g id="edge1" class="edge">
+<title>start-&gt;get_frame</title>
+<path fill="none" stroke="black" d="M136.51,-837.97C136.51,-829.98 136.51,-821.28 136.51,-813.16"/>
+<polygon fill="black" stroke="black" points="140.01,-813.33 136.51,-803.33 133.01,-813.33 140.01,-813.33"/>
+</g>
+<!-- check_last_frame -->
+<g id="node3" class="node">
+<title>check_last_frame</title>
+<path fill="powderblue" stroke="black" d="M125.03,-719.3C125.03,-719.3 11.48,-684.7 11.48,-684.7 5.74,-682.95 5.74,-679.45 11.48,-677.7 11.48,-677.7 125.03,-643.1 125.03,-643.1 130.77,-641.35 142.25,-641.35 147.99,-643.1 147.99,-643.1 261.54,-677.7 261.54,-677.7 267.28,-679.45 267.28,-682.95 261.54,-684.7 261.54,-684.7 147.99,-719.3 147.99,-719.3 142.25,-721.05 130.77,-721.05 125.03,-719.3"/>
+<text text-anchor="middle" x="136.51" y="-685.4" font-family="Times,serif" font-size="14.00">Last Analyzed Frame</text>
+<text text-anchor="middle" x="136.51" y="-668.6" font-family="Times,serif" font-size="14.00">Available?</text>
+</g>
+<!-- get_frame&#45;&gt;check_last_frame -->
+<g id="edge2" class="edge">
+<title>get_frame-&gt;check_last_frame</title>
+<path fill="none" stroke="black" d="M136.51,-759.42C136.51,-752.05 136.51,-743.34 136.51,-734.48"/>
+<polygon fill="black" stroke="black" points="140.01,-734.76 136.51,-724.76 133.01,-734.76 140.01,-734.76"/>
+</g>
+<!-- store_as_last -->
+<g id="node4" class="node">
+<title>store_as_last</title>
+<path fill="powderblue" stroke="black" d="M190.63,-470.6C190.63,-470.6 68.39,-470.6 68.39,-470.6 62.39,-470.6 56.39,-464.6 56.39,-458.6 56.39,-458.6 56.39,-441 56.39,-441 56.39,-435 62.39,-429 68.39,-429 68.39,-429 190.63,-429 190.63,-429 196.63,-429 202.63,-435 202.63,-441 202.63,-441 202.63,-458.6 202.63,-458.6 202.63,-464.6 196.63,-470.6 190.63,-470.6"/>
+<text text-anchor="middle" x="129.51" y="-454" font-family="Times,serif" font-size="14.00">Store Current Frame as</text>
+<text text-anchor="middle" x="129.51" y="-437.2" font-family="Times,serif" font-size="14.00">'Last Analyzed Frame'</text>
+</g>
+<!-- check_last_frame&#45;&gt;store_as_last -->
+<g id="edge4" class="edge">
+<title>check_last_frame-&gt;store_as_last</title>
+<path fill="none" stroke="black" d="M132.7,-640.7C131.27,-624.08 129.83,-604.52 129.13,-586.8 128.11,-560.86 129.07,-554.36 129.13,-528.4 129.17,-513.14 129.25,-496.19 129.32,-482.03"/>
+<polygon fill="black" stroke="black" points="132.82,-482.43 129.38,-472.41 125.82,-482.39 132.82,-482.43"/>
+<text text-anchor="middle" x="178.32" y="-553.4" font-family="Times,serif" font-size="14.00"> No (First Frame)</text>
+</g>
+<!-- compare_frames -->
+<g id="node5" class="node">
+<title>compare_frames</title>
+<path fill="powderblue" stroke="black" d="M464.49,-586.8C464.49,-586.8 248.53,-586.8 248.53,-586.8 242.53,-586.8 236.53,-580.8 236.53,-574.8 236.53,-574.8 236.53,-540.4 236.53,-540.4 236.53,-534.4 242.53,-528.4 248.53,-528.4 248.53,-528.4 464.49,-528.4 464.49,-528.4 470.49,-528.4 476.49,-534.4 476.49,-540.4 476.49,-540.4 476.49,-574.8 476.49,-574.8 476.49,-580.8 470.49,-586.8 464.49,-586.8"/>
+<text text-anchor="middle" x="356.51" y="-570.2" font-family="Times,serif" font-size="14.00">Compare Current Frame</text>
+<text text-anchor="middle" x="356.51" y="-553.4" font-family="Times,serif" font-size="14.00">with Last Analyzed Frame</text>
+<text text-anchor="middle" x="356.51" y="-536.6" font-family="Times,serif" font-size="14.00">(Calculate Similarity Score, e.g., SSIM)</text>
+</g>
+<!-- check_last_frame&#45;&gt;compare_frames -->
+<g id="edge3" class="edge">
+<title>check_last_frame-&gt;compare_frames</title>
+<path fill="none" stroke="black" d="M184.25,-653.81C216.71,-635.87 259.95,-611.97 294.99,-592.6"/>
+<polygon fill="black" stroke="black" points="296.26,-595.9 303.32,-588 292.87,-589.78 296.26,-595.9"/>
+<text text-anchor="middle" x="285.32" y="-609" font-family="Times,serif" font-size="14.00"> Yes</text>
+</g>
+<!-- call_api -->
+<g id="node7" class="node">
+<title>call_api</title>
+<path fill="powderblue" stroke="black" d="M291.28,-355.4C291.28,-355.4 185.75,-355.4 185.75,-355.4 179.75,-355.4 173.75,-349.4 173.75,-343.4 173.75,-343.4 173.75,-325.8 173.75,-325.8 173.75,-319.8 179.75,-313.8 185.75,-313.8 185.75,-313.8 291.28,-313.8 291.28,-313.8 297.28,-313.8 303.28,-319.8 303.28,-325.8 303.28,-325.8 303.28,-343.4 303.28,-343.4 303.28,-349.4 297.28,-355.4 291.28,-355.4"/>
+<text text-anchor="middle" x="238.51" y="-338.8" font-family="Times,serif" font-size="14.00">Send Current Frame</text>
+<text text-anchor="middle" x="238.51" y="-322" font-family="Times,serif" font-size="14.00">to Google API</text>
+</g>
+<!-- store_as_last&#45;&gt;call_api -->
+<g id="edge5" class="edge">
+<title>store_as_last-&gt;call_api</title>
+<path fill="none" stroke="black" d="M149,-428.56C166.36,-410.53 191.94,-383.97 211.31,-363.85"/>
+<polygon fill="black" stroke="black" points="213.73,-366.38 218.14,-356.75 208.69,-361.53 213.73,-366.38"/>
+</g>
+<!-- check_similarity -->
+<g id="node6" class="node">
+<title>check_similarity</title>
+<path fill="powderblue" stroke="black" d="M339.11,-487.66C339.11,-487.66 235.24,-453.54 235.24,-453.54 229.54,-451.67 229.54,-447.93 235.24,-446.06 235.24,-446.06 339.11,-411.94 339.11,-411.94 344.81,-410.07 356.21,-410.07 361.91,-411.94 361.91,-411.94 465.78,-446.06 465.78,-446.06 471.48,-447.93 471.48,-451.67 465.78,-453.54 465.78,-453.54 361.91,-487.66 361.91,-487.66 356.21,-489.53 344.81,-489.53 339.11,-487.66"/>
+<text text-anchor="middle" x="350.51" y="-454" font-family="Times,serif" font-size="14.00">Similarity Score &gt;=</text>
+<text text-anchor="middle" x="350.51" y="-437.2" font-family="Times,serif" font-size="14.00">Threshold?</text>
+</g>
+<!-- compare_frames&#45;&gt;check_similarity -->
+<g id="edge6" class="edge">
+<title>compare_frames-&gt;check_similarity</title>
+<path fill="none" stroke="black" d="M354.89,-527.97C354.44,-520.05 353.94,-511.21 353.44,-502.42"/>
+<polygon fill="black" stroke="black" points="356.94,-502.27 352.87,-492.48 349.95,-502.66 356.94,-502.27"/>
+</g>
+<!-- check_similarity&#45;&gt;call_api -->
+<g id="edge8" class="edge">
+<title>check_similarity-&gt;call_api</title>
+<path fill="none" stroke="black" d="M289.23,-427.89C271.81,-418.97 254.64,-406.71 243.77,-390.2 239.34,-383.47 237.26,-375.22 236.47,-367.19"/>
+<polygon fill="black" stroke="black" points="239.97,-367.18 236.15,-357.3 232.97,-367.41 239.97,-367.18"/>
+<text text-anchor="middle" x="286.14" y="-377.6" font-family="Times,serif" font-size="14.00"> No (Different)</text>
+</g>
+<!-- skip -->
+<g id="node10" class="node">
+<title>skip</title>
+<path fill="powderblue" stroke="black" d="M401.51,-295.8C401.51,-295.8 299.51,-295.8 299.51,-295.8 293.51,-295.8 287.51,-289.8 287.51,-283.8 287.51,-283.8 287.51,-266.2 287.51,-266.2 287.51,-260.2 293.51,-254.2 299.51,-254.2 299.51,-254.2 401.51,-254.2 401.51,-254.2 407.51,-254.2 413.51,-260.2 413.51,-266.2 413.51,-266.2 413.51,-283.8 413.51,-283.8 413.51,-289.8 407.51,-295.8 401.51,-295.8"/>
+<text text-anchor="middle" x="350.51" y="-279.2" font-family="Times,serif" font-size="14.00">Skip API Call</text>
+<text text-anchor="middle" x="350.51" y="-262.4" font-family="Times,serif" font-size="14.00">(Scene Unchanged)</text>
+</g>
+<!-- check_similarity&#45;&gt;skip -->
+<g id="edge7" class="edge">
+<title>check_similarity-&gt;skip</title>
+<path fill="none" stroke="black" d="M350.51,-407.85C350.51,-377.11 350.51,-335.64 350.51,-307.47"/>
+<polygon fill="black" stroke="black" points="354.01,-307.8 350.51,-297.8 347.01,-307.8 354.01,-307.8"/>
+<text text-anchor="middle" x="390.17" y="-377.6" font-family="Times,serif" font-size="14.00"> Yes (Similar)</text>
+</g>
+<!-- handle_api_response -->
+<g id="node8" class="node">
+<title>handle_api_response</title>
+<path fill="powderblue" stroke="black" d="M307.79,-236.2C307.79,-236.2 169.23,-236.2 169.23,-236.2 163.23,-236.2 157.23,-230.2 157.23,-224.2 157.23,-224.2 157.23,-206.6 157.23,-206.6 157.23,-200.6 163.23,-194.6 169.23,-194.6 169.23,-194.6 307.79,-194.6 307.79,-194.6 313.79,-194.6 319.79,-200.6 319.79,-206.6 319.79,-206.6 319.79,-224.2 319.79,-224.2 319.79,-230.2 313.79,-236.2 307.79,-236.2"/>
+<text text-anchor="middle" x="238.51" y="-219.6" font-family="Times,serif" font-size="14.00">Handle API Response</text>
+<text text-anchor="middle" x="238.51" y="-202.8" font-family="Times,serif" font-size="14.00">(Get Description or Error)</text>
+</g>
+<!-- call_api&#45;&gt;handle_api_response -->
+<g id="edge9" class="edge">
+<title>call_api-&gt;handle_api_response</title>
+<path fill="none" stroke="black" d="M238.51,-313.45C238.51,-295.51 238.51,-268.95 238.51,-248.15"/>
+<polygon fill="black" stroke="black" points="242.01,-248.19 238.51,-238.19 235.01,-248.19 242.01,-248.19"/>
+</g>
+<!-- broadcast -->
+<g id="node9" class="node">
+<title>broadcast</title>
+<path fill="powderblue" stroke="black" d="M310.62,-157.6C310.62,-157.6 160.4,-157.6 160.4,-157.6 154.4,-157.6 148.4,-151.6 148.4,-145.6 148.4,-145.6 148.4,-128 148.4,-128 148.4,-122 154.4,-116 160.4,-116 160.4,-116 310.62,-116 310.62,-116 316.62,-116 322.62,-122 322.62,-128 322.62,-128 322.62,-145.6 322.62,-145.6 322.62,-151.6 316.62,-157.6 310.62,-157.6"/>
+<text text-anchor="middle" x="235.51" y="-141" font-family="Times,serif" font-size="14.00">Broadcast Description/Error</text>
+<text text-anchor="middle" x="235.51" y="-124.2" font-family="Times,serif" font-size="14.00">to Client via WebSocket</text>
+</g>
+<!-- handle_api_response&#45;&gt;broadcast -->
+<g id="edge10" class="edge">
+<title>handle_api_response-&gt;broadcast</title>
+<path fill="none" stroke="black" d="M237.72,-194.27C237.43,-186.68 237.08,-177.85 236.75,-169.46"/>
+<polygon fill="black" stroke="black" points="240.25,-169.43 236.36,-159.57 233.26,-169.7 240.25,-169.43"/>
+</g>
+<!-- broadcast&#45;&gt;store_as_last -->
+<g id="edge11" class="edge">
+<title>broadcast-&gt;store_as_last</title>
+<path fill="none" stroke="black" d="M188.18,-158.07C172.97,-167 157.68,-179.07 148.51,-194.6 106.84,-265.15 115.51,-366.62 123.5,-417.38"/>
+<polygon fill="black" stroke="black" points="120.02,-417.8 125.13,-427.08 126.92,-416.64 120.02,-417.8"/>
+<text text-anchor="middle" x="168.34" y="-270.8" font-family="Times,serif" font-size="14.00"> If API Success</text>
+</g>
+<!-- end_tick -->
+<g id="node11" class="node">
+<title>end_tick</title>
+<ellipse fill="powderblue" stroke="black" cx="292.51" cy="-45.2" rx="90.96" ry="18"/>
+<text text-anchor="middle" x="292.51" y="-41" font-family="Times,serif" font-size="14.00">End Tick Processing</text>
+</g>
+<!-- broadcast&#45;&gt;end_tick -->
+<g id="edge12" class="edge">
+<title>broadcast-&gt;end_tick</title>
+<path fill="none" stroke="black" d="M245.16,-115.58C250.45,-105.06 257.39,-92.15 264.59,-81.2 266.6,-78.15 268.81,-75.04 271.08,-71.99"/>
+<polygon fill="black" stroke="black" points="273.63,-74.41 277.01,-64.37 268.11,-70.11 273.63,-74.41"/>
+<text text-anchor="middle" x="300.55" y="-85.4" font-family="Times,serif" font-size="14.00"> If API Error</text>
+</g>
+<!-- skip&#45;&gt;end_tick -->
+<g id="edge13" class="edge">
+<title>skip-&gt;end_tick</title>
+<path fill="none" stroke="black" d="M354.05,-253.99C359.5,-217.31 366.43,-137.89 336.51,-81.2 334.42,-77.23 331.66,-73.57 328.54,-70.21"/>
+<polygon fill="black" stroke="black" points="331.06,-67.78 321.34,-63.57 326.32,-72.93 331.06,-67.78"/>
+</g>
+</g>
+</svg>

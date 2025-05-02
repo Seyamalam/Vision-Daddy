@@ -1,0 +1,47 @@
+digraph VisionVault_Architecture_Enhanced {
+    rankdir=LR;
+    node [shape=box, style="rounded,filled"];
+
+    subgraph cluster_hardware {
+        label = "Hardware";
+        fillcolor=lightblue; style="rounded,filled";
+        esp32 [label="ESP32-CAM\n(camera-feed.ino)"];
+    }
+
+    subgraph cluster_network {
+        label = "Trusted Local WiFi Network";
+        fillcolor=lightgrey; style="rounded,filled";
+        wifi [label="WiFi Network (WPA2/WPA3)", shape=ellipse];
+        esp32 -> wifi [label=" WiFi"];
+    }
+
+    subgraph cluster_backend {
+        label = "Python Backend Server";
+        fillcolor=lightgreen; style="rounded,filled";
+        python_server [label="Python Server\n(Asyncio)\n- Stream Fetcher\n- WebSocket Server (WSS)\n- Scene Detection\n- Timer Loops\n- API Interaction"];
+    }
+
+     subgraph cluster_mobile {
+        label = "Mobile App";
+        fillcolor=yellow; style="rounded,filled";
+        react_native_app [label="React Native App\n- WebSocket Client (WSS)\n- UI/Controls\n- History\n- TTS/Haptics"];
+     }
+
+    google_api [label="Google Generative AI API", shape=cylinder, style=filled, fillcolor=tomato];
+
+    // Connections (Arrows indicate primary data/command flow direction)
+    esp32 -> python_server [label=" HTTP (MJPEG Stream)\n[Unencrypted - LAN only]", dir=back, constraint=false]; // Request from Python
+    python_server -> wifi [label=" HTTP Request", style=dashed];
+
+    // Secure WebSocket Communication
+    react_native_app -> python_server [label=" WSS (Commands, Token)\n[Encrypted]"];
+    python_server -> react_native_app [label=" WSS (Descriptions, Status, Errors)\n[Encrypted]"];
+
+    // AI API Interaction
+    python_server -> google_api [label=" HTTPS (Image Frame, API Key)"];
+    google_api -> python_server [label=" HTTPS (Description Text)"];
+
+    // Label for overall context
+    label = "Enhanced VisionVault System Architecture";
+    fontsize=16;
+}

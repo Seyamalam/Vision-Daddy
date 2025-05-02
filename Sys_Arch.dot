@@ -1,0 +1,51 @@
+digraph VisionVault_Architecture_Enhanced {
+    rankdir=LR;
+    nodesep=0.6; // Increased separation between nodes
+    ranksep=1.0; // Increased separation between ranks (layers)
+    node [shape=box, style="rounded,filled"];
+    edge [fontsize=9]; // Smaller font size for edge labels
+
+    subgraph cluster_hardware {
+        label = "Hardware";
+        fillcolor=lightblue; style="rounded,filled";
+        esp32 [label="ESP32-CAM\n(camera-feed.ino)"];
+    }
+
+    subgraph cluster_network {
+        label = "Trusted Local WiFi Network";
+        fillcolor=lightgrey; style="rounded,filled";
+        wifi [label="WiFi Network\n(WPA2/WPA3)", shape=ellipse];
+        esp32 -> wifi [label=" WiFi"];
+    }
+
+    subgraph cluster_backend {
+        label = "Python Backend Server";
+        fillcolor=lightgreen; style="rounded,filled";
+        // Slightly shorter labels within the node
+        python_server [label="Python Server (Asyncio)\n- Stream Fetcher\n- WebSocket Server (WSS)\n- Scene Detection\n- Timer Loops\n- API Interaction"];
+    }
+
+     subgraph cluster_mobile {
+        label = "Mobile App";
+        fillcolor=yellow; style="rounded,filled";
+        react_native_app [label="React Native App\n- WebSocket Client (WSS)\n- UI/Controls\n- History\n- TTS/Haptics"];
+     }
+
+    google_api [label="Google Generative AI API", shape=cylinder, style=filled, fillcolor=tomato];
+
+    // Connections (Shorter labels)
+    esp32 -> python_server [label=" HTTP Stream (MJPEG)\n[Unencrypted LAN]", dir=back, constraint=false]; // Request from Python
+    python_server -> wifi [label=" HTTP Req.", style=dashed];
+
+    // Secure WebSocket Communication (Shorter labels)
+    react_native_app -> python_server [label=" WSS (Cmds, Token)\n[Encrypted]"];
+    python_server -> react_native_app [label=" WSS (Desc, Status, Err)\n[Encrypted]"];
+
+    // AI API Interaction (Shorter labels)
+    python_server -> google_api [label=" HTTPS (Image, API Key)"];
+    google_api -> python_server [label=" HTTPS (Description)"];
+
+    // Label for overall context
+    label = "Enhanced VisionVault System Architecture";
+    fontsize=14; // Slightly smaller title font size
+}

@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="547pt" height="425pt" viewBox="0.00 0.00 547.10 424.80">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 420.8)">
+<title>VisionVault_Architecture_Enhanced</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-420.8 543.1,-420.8 543.1,4 -4,4"/>
+<text text-anchor="middle" x="269.55" y="-8.2" font-family="Times,serif" font-size="14.00">Enhanced VisionVault System Architecture</text>
+<g id="clust1" class="cluster">
+<title>cluster_hardware</title>
+<path fill="lightblue" stroke="black" d="M47.23,-325.8C47.23,-325.8 155.11,-325.8 155.11,-325.8 161.11,-325.8 167.11,-331.8 167.11,-337.8 167.11,-337.8 167.11,-396.8 167.11,-396.8 167.11,-402.8 161.11,-408.8 155.11,-408.8 155.11,-408.8 47.23,-408.8 47.23,-408.8 41.23,-408.8 35.23,-402.8 35.23,-396.8 35.23,-396.8 35.23,-337.8 35.23,-337.8 35.23,-331.8 41.23,-325.8 47.23,-325.8"/>
+<text text-anchor="middle" x="101.17" y="-392.2" font-family="Times,serif" font-size="14.00">Hardware</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_network</title>
+<path fill="lightgrey" stroke="black" d="M362.14,-283.8C362.14,-283.8 517.04,-283.8 517.04,-283.8 523.04,-283.8 529.04,-289.8 529.04,-295.8 529.04,-295.8 529.04,-370.8 529.04,-370.8 529.04,-376.8 523.04,-382.8 517.04,-382.8 517.04,-382.8 362.14,-382.8 362.14,-382.8 356.14,-382.8 350.14,-376.8 350.14,-370.8 350.14,-370.8 350.14,-295.8 350.14,-295.8 350.14,-289.8 356.14,-283.8 362.14,-283.8"/>
+<text text-anchor="middle" x="439.59" y="-366.2" font-family="Times,serif" font-size="14.00">Trusted Local WiFi Network</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_backend</title>
+<path fill="lightgreen" stroke="black" d="M20,-93.8C20,-93.8 182.34,-93.8 182.34,-93.8 188.34,-93.8 194.34,-99.8 194.34,-105.8 194.34,-105.8 194.34,-230.8 194.34,-230.8 194.34,-236.8 188.34,-242.8 182.34,-242.8 182.34,-242.8 20,-242.8 20,-242.8 14,-242.8 8,-236.8 8,-230.8 8,-230.8 8,-105.8 8,-105.8 8,-99.8 14,-93.8 20,-93.8"/>
+<text text-anchor="middle" x="101.17" y="-226.2" font-family="Times,serif" font-size="14.00">Python Backend Server</text>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_mobile</title>
+<path fill="yellow" stroke="black" d="M359.07,-121.8C359.07,-121.8 519.1,-121.8 519.1,-121.8 525.1,-121.8 531.1,-127.8 531.1,-133.8 531.1,-133.8 531.1,-242.8 531.1,-242.8 531.1,-248.8 525.1,-254.8 519.1,-254.8 519.1,-254.8 359.07,-254.8 359.07,-254.8 353.07,-254.8 347.07,-248.8 347.07,-242.8 347.07,-242.8 347.07,-133.8 347.07,-133.8 347.07,-127.8 353.07,-121.8 359.07,-121.8"/>
+<text text-anchor="middle" x="439.09" y="-238.2" font-family="Times,serif" font-size="14.00">Mobile App</text>
+</g>
+<!-- esp32 -->
+<g id="node1" class="node">
+<title>esp32</title>
+<path fill="lightgrey" stroke="black" d="M147.11,-375.6C147.11,-375.6 55.23,-375.6 55.23,-375.6 49.23,-375.6 43.23,-369.6 43.23,-363.6 43.23,-363.6 43.23,-346 43.23,-346 43.23,-340 49.23,-334 55.23,-334 55.23,-334 147.11,-334 147.11,-334 153.11,-334 159.11,-340 159.11,-346 159.11,-346 159.11,-363.6 159.11,-363.6 159.11,-369.6 153.11,-375.6 147.11,-375.6"/>
+<text text-anchor="middle" x="101.17" y="-359" font-family="Times,serif" font-size="14.00">ESP32-CAM</text>
+<text text-anchor="middle" x="101.17" y="-342.2" font-family="Times,serif" font-size="14.00">(camera-feed.ino)</text>
+</g>
+<!-- wifi -->
+<g id="node2" class="node">
+<title>wifi</title>
+<ellipse fill="lightgrey" stroke="black" cx="439.09" cy="-320.8" rx="74.55" ry="29.42"/>
+<text text-anchor="middle" x="439.09" y="-325" font-family="Times,serif" font-size="14.00">WiFi Network</text>
+<text text-anchor="middle" x="439.09" y="-308.2" font-family="Times,serif" font-size="14.00">(WPA2/WPA3)</text>
+</g>
+<!-- esp32&#45;&gt;wifi -->
+<g id="edge1" class="edge">
+<title>esp32-&gt;wifi</title>
+<path fill="none" stroke="black" d="M159.54,-348.99C213.34,-343.55 294.4,-335.34 355.22,-329.19"/>
+<polygon fill="black" stroke="black" points="355.23,-332.7 364.83,-328.21 354.53,-325.74 355.23,-332.7"/>
+<text text-anchor="middle" x="270.71" y="-344.55" font-family="Times,serif" font-size="9.00"> WiFi</text>
+</g>
+<!-- python_server -->
+<g id="node3" class="node">
+<title>python_server</title>
+<path fill="lightgrey" stroke="black" d="M174.34,-210.2C174.34,-210.2 28,-210.2 28,-210.2 22,-210.2 16,-204.2 16,-198.2 16,-198.2 16,-113.4 16,-113.4 16,-107.4 22,-101.4 28,-101.4 28,-101.4 174.34,-101.4 174.34,-101.4 180.34,-101.4 186.34,-107.4 186.34,-113.4 186.34,-113.4 186.34,-198.2 186.34,-198.2 186.34,-204.2 180.34,-210.2 174.34,-210.2"/>
+<text text-anchor="middle" x="101.17" y="-193.6" font-family="Times,serif" font-size="14.00">Python Server (Asyncio)</text>
+<text text-anchor="middle" x="101.17" y="-176.8" font-family="Times,serif" font-size="14.00">- Stream Fetcher</text>
+<text text-anchor="middle" x="101.17" y="-160" font-family="Times,serif" font-size="14.00">- WebSocket Server (WSS)</text>
+<text text-anchor="middle" x="101.17" y="-143.2" font-family="Times,serif" font-size="14.00">- Scene Detection</text>
+<text text-anchor="middle" x="101.17" y="-126.4" font-family="Times,serif" font-size="14.00">- Timer Loops</text>
+<text text-anchor="middle" x="101.17" y="-109.6" font-family="Times,serif" font-size="14.00">- API Interaction</text>
+</g>
+<!-- esp32&#45;&gt;python_server -->
+<g id="edge2" class="edge">
+<title>esp32-&gt;python_server</title>
+<path fill="none" stroke="black" d="M101.17,-322.51C101.17,-292.24 101.17,-246.4 101.17,-210.44"/>
+<polygon fill="black" stroke="black" points="97.67,-322.17 101.17,-332.17 104.67,-322.17 97.67,-322.17"/>
+<text text-anchor="middle" x="87.37" y="-274.8" font-family="Times,serif" font-size="9.00"> HTTP Stream (MJPEG)</text>
+<text text-anchor="middle" x="87.37" y="-264" font-family="Times,serif" font-size="9.00">[Unencrypted LAN]</text>
+</g>
+<!-- python_server&#45;&gt;wifi -->
+<g id="edge3" class="edge">
+<title>python_server-&gt;wifi</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M186.5,-197.22C247.36,-227.11 327.88,-266.66 381.24,-292.88"/>
+<polygon fill="black" stroke="black" points="379.67,-296 390.18,-297.27 382.75,-289.72 379.67,-296"/>
+<text text-anchor="middle" x="270.71" y="-260.63" font-family="Times,serif" font-size="9.00"> HTTP Req.</text>
+</g>
+<!-- react_native_app -->
+<g id="node4" class="node">
+<title>react_native_app</title>
+<path fill="lightgrey" stroke="black" d="M511.1,-221.8C511.1,-221.8 367.07,-221.8 367.07,-221.8 361.07,-221.8 355.07,-215.8 355.07,-209.8 355.07,-209.8 355.07,-141.8 355.07,-141.8 355.07,-135.8 361.07,-129.8 367.07,-129.8 367.07,-129.8 511.1,-129.8 511.1,-129.8 517.1,-129.8 523.1,-135.8 523.1,-141.8 523.1,-141.8 523.1,-209.8 523.1,-209.8 523.1,-215.8 517.1,-221.8 511.1,-221.8"/>
+<text text-anchor="middle" x="439.09" y="-205.2" font-family="Times,serif" font-size="14.00">React Native App</text>
+<text text-anchor="middle" x="439.09" y="-188.4" font-family="Times,serif" font-size="14.00">- WebSocket Client (WSS)</text>
+<text text-anchor="middle" x="439.09" y="-171.6" font-family="Times,serif" font-size="14.00">- UI/Controls</text>
+<text text-anchor="middle" x="439.09" y="-154.8" font-family="Times,serif" font-size="14.00">- History</text>
+<text text-anchor="middle" x="439.09" y="-138" font-family="Times,serif" font-size="14.00">- TTS/Haptics</text>
+</g>
+<!-- python_server&#45;&gt;react_native_app -->
+<g id="edge5" class="edge">
+<title>python_server-&gt;react_native_app</title>
+<path fill="none" stroke="black" d="M186.57,-174.03C198.53,-176.01 210.71,-177.7 222.34,-178.8 261.8,-182.54 305.49,-182.68 343.18,-181.55"/>
+<polygon fill="black" stroke="black" points="343.29,-185.05 353.16,-181.21 343.05,-178.05 343.29,-185.05"/>
+<text text-anchor="middle" x="270.71" y="-195.67" font-family="Times,serif" font-size="9.00"> WSS (Desc, Status, Err)</text>
+<text text-anchor="middle" x="270.71" y="-184.87" font-family="Times,serif" font-size="9.00">[Encrypted]</text>
+</g>
+<!-- google_api -->
+<g id="node5" class="node">
+<title>google_api</title>
+<path fill="tomato" stroke="black" d="M522.31,-57.53C522.31,-59.33 485.01,-60.8 439.09,-60.8 393.16,-60.8 355.86,-59.33 355.86,-57.53 355.86,-57.53 355.86,-28.07 355.86,-28.07 355.86,-26.27 393.16,-24.8 439.09,-24.8 485.01,-24.8 522.31,-26.27 522.31,-28.07 522.31,-28.07 522.31,-57.53 522.31,-57.53"/>
+<path fill="none" stroke="black" d="M522.31,-57.53C522.31,-55.72 485.01,-54.25 439.09,-54.25 393.16,-54.25 355.86,-55.72 355.86,-57.53"/>
+<text text-anchor="middle" x="439.09" y="-38.6" font-family="Times,serif" font-size="14.00">Google Generative AI API</text>
+</g>
+<!-- python_server&#45;&gt;google_api -->
+<g id="edge6" class="edge">
+<title>python_server-&gt;google_api</title>
+<path fill="none" stroke="black" d="M186.5,-127.43C244.5,-107.92 320.37,-82.4 373.56,-64.51"/>
+<polygon fill="black" stroke="black" points="374.42,-67.91 382.79,-61.4 372.19,-61.27 374.42,-67.91"/>
+<text text-anchor="middle" x="270.71" y="-115.44" font-family="Times,serif" font-size="9.00"> HTTPS (Image, API Key)</text>
+</g>
+<!-- react_native_app&#45;&gt;python_server -->
+<g id="edge4" class="edge">
+<title>react_native_app-&gt;python_server</title>
+<path fill="none" stroke="black" d="M354.87,-156.36C342.91,-154.22 330.72,-152.39 319.07,-151.2 279.51,-147.15 235.69,-147.23 197.85,-148.71"/>
+<polygon fill="black" stroke="black" points="198.18,-145.19 188.34,-149.12 198.49,-152.19 198.18,-145.19"/>
+<text text-anchor="middle" x="270.71" y="-164.7" font-family="Times,serif" font-size="9.00"> WSS (Cmds, Token)</text>
+<text text-anchor="middle" x="270.71" y="-153.9" font-family="Times,serif" font-size="9.00">[Encrypted]</text>
+</g>
+<!-- google_api&#45;&gt;python_server -->
+<g id="edge7" class="edge">
+<title>google_api-&gt;python_server</title>
+<path fill="none" stroke="black" d="M355.46,-40.94C314.21,-42.57 264.3,-48.49 222.34,-65 204.34,-72.08 186.71,-82.65 170.73,-94.11"/>
+<polygon fill="black" stroke="black" points="168.69,-91.26 162.74,-100.03 172.86,-96.89 168.69,-91.26"/>
+<text text-anchor="middle" x="270.71" y="-67.7" font-family="Times,serif" font-size="9.00"> HTTPS (Description)</text>
+</g>
+</g>
+</svg>

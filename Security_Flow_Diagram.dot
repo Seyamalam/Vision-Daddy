@@ -1,0 +1,39 @@
+digraph Security_Flow_WSS_Auth {
+    rankdir=TB;
+    node [shape=box, style=filled, fontname="Helvetica"];
+
+    subgraph cluster_seq {
+        label = "WSS Connection & Authentication";
+        style=rounded;
+        color=white;
+        bgcolor=white;
+        fontname="Helvetica";
+        fontsize=16;
+
+        MobileApp [label="Mobile App\n(React Native)", fillcolor="#cce5ff", fontcolor=black];
+        PythonServer [label="Python Server\n(WebSocket Handler)", fillcolor="#ffe5b4", fontcolor=black];
+
+        MobileApp -> PythonServer [label="1. Initiate WSS Connection", color="#007bff"];
+        TLSNote [shape=note, label="TLS Handshake\n(Encryption Setup)", fillcolor="#d9edf7", style=filled];
+        MobileApp -> TLSNote [arrowhead=none, style=dashed, color=gray];
+
+        PythonServer -> MobileApp [label="2. Complete WSS Connection", color="#007bff"];
+        MobileApp -> PythonServer [label="3. Send Auth Message\n{\"type\": \"auth\", \"token\": \"SECRET_TOKEN\"}", color="#28a745"];
+
+        ValidateNote [shape=note, label="Server Validates Token", fillcolor="#f9f9f9", style=filled];
+        PythonServer -> ValidateNote [arrowhead=none, style=dashed, color=gray];
+
+        AuthValid [label="Token Valid?", shape=diamond, fillcolor="#f0f0f0", style=filled];
+        PythonServer -> AuthValid [style=dotted, color=gray, label="Validate"];
+
+        PythonServer -> MobileApp [label="4a. Auth Success\n{\"type\": \"auth_ack\", \"status\": \"ok\"}", color="green"];
+        AuthSuccessNote [shape=note, label="Client Authenticated\nAccepts further commands", fillcolor="#d4edda", style=filled];
+        PythonServer -> AuthSuccessNote [arrowhead=none, style=dashed, color=gray];
+
+        PythonServer -> MobileApp [label="4b. Auth Failure\n{\"type\": \"auth_ack\", \"status\": \"fail\"}", color="red"];
+        AuthFailNote [shape=note, label="Reject commands\nOptionally disconnect", fillcolor="#f8d7da", style=filled];
+        PythonServer -> AuthFailNote [arrowhead=none, style=dashed, color=gray];
+    }
+
+    fontsize=16;
+}

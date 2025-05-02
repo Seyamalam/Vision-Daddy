@@ -1,0 +1,33 @@
+digraph Scene_Change_Logic {
+    rankdir=TB;
+    node [shape=box, style="rounded,filled", fillcolor=powderblue];
+    start [shape=ellipse, label="Timer Tick for\nActive Client"];
+    get_frame [label="Get Latest Frame\nfrom ESP32 Stream"];
+    check_last_frame [shape=diamond, label="Last Analyzed Frame\nAvailable?"];
+    store_as_last [label="Store Current Frame as\n'Last Analyzed Frame'"];
+    compare_frames [label="Compare Current Frame\nwith Last Analyzed Frame\n(Calculate Similarity Score, e.g., SSIM)"];
+    check_similarity [shape=diamond, label="Similarity Score >=\nThreshold?"];
+    call_api [label="Send Current Frame\nto Google API"];
+    handle_api_response [label="Handle API Response\n(Get Description or Error)"];
+    broadcast [label="Broadcast Description/Error\nto Client via WebSocket"];
+    skip [label="Skip API Call\n(Scene Unchanged)"];
+    end_tick [shape=ellipse, label="End Tick Processing"];
+
+    // Flow
+    start -> get_frame;
+    get_frame -> check_last_frame;
+    check_last_frame -> compare_frames [label=" Yes"];
+    check_last_frame -> store_as_last [label=" No (First Frame)"];
+    store_as_last -> call_api; // Always analyze the first frame
+    compare_frames -> check_similarity;
+    check_similarity -> skip [label=" Yes (Similar)"];
+    check_similarity -> call_api [label=" No (Different)"];
+    call_api -> handle_api_response;
+    handle_api_response -> broadcast;
+    broadcast -> store_as_last [label=" If API Success"]; // Update last analyzed frame only on success
+    broadcast -> end_tick [label=" If API Error"];
+    skip -> end_tick;
+
+    label = "Python Server: Scene Change Detection Logic";
+    fontsize=16;
+}

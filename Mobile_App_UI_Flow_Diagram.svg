@@ -1,0 +1,213 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1133pt" height="756pt" viewBox="0.00 0.00 1133.47 756.20">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 752.2)">
+<title>Mobile_App_UI_Flow</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-752.2 1129.47,-752.2 1129.47,4 -4,4"/>
+<text text-anchor="middle" x="562.73" y="-8.8" font-family="Times,serif" font-size="16.00">Simplified Mobile App UI Flow</text>
+<!-- start -->
+<g id="node1" class="node">
+<title>start</title>
+<ellipse fill="yellow" stroke="black" cx="349.98" cy="-730.2" rx="48.32" ry="18"/>
+<text text-anchor="middle" x="349.98" y="-726" font-family="Times,serif" font-size="14.00">App Start</text>
+</g>
+<!-- disconnected -->
+<g id="node2" class="node">
+<title>disconnected</title>
+<path fill="yellow" stroke="black" d="M439.3,-675.2C439.3,-675.2 260.65,-675.2 260.65,-675.2 254.65,-675.2 248.65,-669.2 248.65,-663.2 248.65,-663.2 248.65,-645.6 248.65,-645.6 248.65,-639.6 254.65,-633.6 260.65,-633.6 260.65,-633.6 439.3,-633.6 439.3,-633.6 445.3,-633.6 451.3,-639.6 451.3,-645.6 451.3,-645.6 451.3,-663.2 451.3,-663.2 451.3,-669.2 445.3,-675.2 439.3,-675.2"/>
+<text text-anchor="middle" x="349.98" y="-658.6" font-family="Times,serif" font-size="14.00">Display: Disconnected</text>
+<text text-anchor="middle" x="349.98" y="-641.8" font-family="Times,serif" font-size="14.00">Show Connect Button/Auto-retry</text>
+</g>
+<!-- start&#45;&gt;disconnected -->
+<g id="edge1" class="edge">
+<title>start-&gt;disconnected</title>
+<path fill="none" stroke="black" d="M349.98,-711.71C349.98,-704.35 349.98,-695.55 349.98,-687.12"/>
+<polygon fill="black" stroke="black" points="353.48,-687.15 349.98,-677.15 346.48,-687.15 353.48,-687.15"/>
+</g>
+<!-- connecting -->
+<g id="node3" class="node">
+<title>connecting</title>
+<path fill="yellow" stroke="black" d="M278.69,-580.8C278.69,-580.8 59.26,-580.8 59.26,-580.8 53.26,-580.8 47.26,-574.8 47.26,-568.8 47.26,-568.8 47.26,-551.2 47.26,-551.2 47.26,-545.2 53.26,-539.2 59.26,-539.2 59.26,-539.2 278.69,-539.2 278.69,-539.2 284.69,-539.2 290.69,-545.2 290.69,-551.2 290.69,-551.2 290.69,-568.8 290.69,-568.8 290.69,-574.8 284.69,-580.8 278.69,-580.8"/>
+<text text-anchor="middle" x="168.98" y="-564.2" font-family="Times,serif" font-size="14.00">Display: Connecting...</text>
+<text text-anchor="middle" x="168.98" y="-547.4" font-family="Times,serif" font-size="14.00">(WebSocket Client attempts connection)</text>
+</g>
+<!-- disconnected&#45;&gt;connecting -->
+<g id="edge2" class="edge">
+<title>disconnected-&gt;connecting</title>
+<path fill="none" stroke="black" d="M248.55,-638.47C221.03,-632.61 196.02,-625 185.9,-615.6 179.33,-609.5 175.29,-600.9 172.81,-592.32"/>
+<polygon fill="black" stroke="black" points="176.27,-591.77 170.7,-582.76 169.44,-593.28 176.27,-591.77"/>
+<text text-anchor="middle" x="260.94" y="-603" font-family="Times,serif" font-size="14.00"> Auto-Retry / Tap Connect</text>
+</g>
+<!-- connecting&#45;&gt;disconnected -->
+<g id="edge4" class="edge">
+<title>connecting-&gt;disconnected</title>
+<path fill="none" stroke="black" d="M81.73,-581.27C62.71,-589.68 51.62,-600.97 64.44,-615.6 87.04,-641.39 167.39,-650.4 237.12,-653.2"/>
+<polygon fill="black" stroke="black" points="236.58,-656.68 246.7,-653.54 236.83,-649.69 236.58,-656.68"/>
+<text text-anchor="middle" x="117.71" y="-603" font-family="Times,serif" font-size="14.00"> Connection Failed</text>
+</g>
+<!-- connected -->
+<g id="node4" class="node">
+<title>connected</title>
+<path fill="yellow" stroke="black" d="M223.32,-452.8C223.32,-452.8 114.64,-452.8 114.64,-452.8 108.64,-452.8 102.64,-446.8 102.64,-440.8 102.64,-440.8 102.64,-423.2 102.64,-423.2 102.64,-417.2 108.64,-411.2 114.64,-411.2 114.64,-411.2 223.32,-411.2 223.32,-411.2 229.32,-411.2 235.32,-417.2 235.32,-423.2 235.32,-423.2 235.32,-440.8 235.32,-440.8 235.32,-446.8 229.32,-452.8 223.32,-452.8"/>
+<text text-anchor="middle" x="168.98" y="-436.2" font-family="Times,serif" font-size="14.00">Display: Connected</text>
+<text text-anchor="middle" x="168.98" y="-419.4" font-family="Times,serif" font-size="14.00">Show Main Controls</text>
+</g>
+<!-- connecting&#45;&gt;connected -->
+<g id="edge3" class="edge">
+<title>connecting-&gt;connected</title>
+<path fill="none" stroke="black" d="M168.98,-538.76C168.98,-518.73 168.98,-487.8 168.98,-464.55"/>
+<polygon fill="black" stroke="black" points="172.48,-464.71 168.98,-454.71 165.48,-464.71 172.48,-464.71"/>
+<text text-anchor="middle" x="234.68" y="-508.6" font-family="Times,serif" font-size="14.00"> WebSocket Connected</text>
+</g>
+<!-- connected&#45;&gt;disconnected -->
+<g id="edge18" class="edge">
+<title>connected-&gt;disconnected</title>
+<path fill="none" stroke="black" d="M229.42,-453.3C255.46,-464.72 284.38,-481.39 303.98,-504.4 332.59,-537.99 343.42,-589.2 347.5,-621.99"/>
+<polygon fill="black" stroke="black" points="344,-622.1 348.56,-631.66 350.95,-621.34 344,-622.1"/>
+<text text-anchor="middle" x="413.45" y="-555.8" font-family="Times,serif" font-size="14.00"> WebSocket Disconnected</text>
+</g>
+<!-- inactive_state -->
+<g id="node7" class="node">
+<title>inactive_state</title>
+<path fill="yellow" stroke="black" d="M548.93,-324.8C548.93,-324.8 401.03,-324.8 401.03,-324.8 395.03,-324.8 389.03,-318.8 389.03,-312.8 389.03,-312.8 389.03,-295.2 389.03,-295.2 389.03,-289.2 395.03,-283.2 401.03,-283.2 401.03,-283.2 548.93,-283.2 548.93,-283.2 554.93,-283.2 560.93,-289.2 560.93,-295.2 560.93,-295.2 560.93,-312.8 560.93,-312.8 560.93,-318.8 554.93,-324.8 548.93,-324.8"/>
+<text text-anchor="middle" x="474.98" y="-308.2" font-family="Times,serif" font-size="14.00">Display: Inactive</text>
+<text text-anchor="middle" x="474.98" y="-291.4" font-family="Times,serif" font-size="14.00">(Connected, not describing)</text>
+</g>
+<!-- connected&#45;&gt;inactive_state -->
+<g id="edge5" class="edge">
+<title>connected-&gt;inactive_state</title>
+<path fill="none" stroke="black" d="M217.47,-410.74C260.53,-392.78 325.17,-365.9 381.55,-342.8 392.22,-338.43 403.6,-333.8 414.6,-329.34"/>
+<polygon fill="black" stroke="black" points="415.65,-332.69 423.6,-325.69 413.02,-326.2 415.65,-332.69"/>
+<text text-anchor="middle" x="415.76" y="-347" font-family="Times,serif" font-size="14.00"> Initial State</text>
+</g>
+<!-- error_state -->
+<g id="node9" class="node">
+<title>error_state</title>
+<path fill="yellow" stroke="black" d="M294.46,-68.8C294.46,-68.8 169.49,-68.8 169.49,-68.8 163.49,-68.8 157.49,-62.8 157.49,-56.8 157.49,-56.8 157.49,-39.2 157.49,-39.2 157.49,-33.2 163.49,-27.2 169.49,-27.2 169.49,-27.2 294.46,-27.2 294.46,-27.2 300.46,-27.2 306.46,-33.2 306.46,-39.2 306.46,-39.2 306.46,-56.8 306.46,-56.8 306.46,-62.8 300.46,-68.8 294.46,-68.8"/>
+<text text-anchor="middle" x="231.98" y="-52.2" font-family="Times,serif" font-size="14.00">Display: Error Message</text>
+<text text-anchor="middle" x="231.98" y="-35.4" font-family="Times,serif" font-size="14.00">(Received from Server)</text>
+</g>
+<!-- connected&#45;&gt;error_state -->
+<g id="edge14" class="edge">
+<title>connected-&gt;error_state</title>
+<path fill="none" stroke="black" d="M130.33,-410.73C73.61,-377.94 -22.62,-309.09 4.96,-231.6 32.8,-153.38 54.95,-134.39 122.98,-86.8 130.33,-81.66 138.44,-77.16 146.83,-73.23"/>
+<polygon fill="black" stroke="black" points="148.01,-76.54 155.78,-69.33 145.21,-70.12 148.01,-76.54"/>
+<text text-anchor="middle" x="59.97" y="-244.2" font-family="Times,serif" font-size="14.00"> Receive Error Msg</text>
+</g>
+<!-- main_controls -->
+<g id="node5" class="node">
+<title>main_controls</title>
+<path fill="yellow" stroke="black" d="M486.1,-486.4C486.1,-486.4 363.85,-486.4 363.85,-486.4 357.85,-486.4 351.85,-480.4 351.85,-474.4 351.85,-474.4 351.85,-389.6 351.85,-389.6 351.85,-383.6 357.85,-377.6 363.85,-377.6 363.85,-377.6 486.1,-377.6 486.1,-377.6 492.1,-377.6 498.1,-383.6 498.1,-389.6 498.1,-389.6 498.1,-474.4 498.1,-474.4 498.1,-480.4 492.1,-486.4 486.1,-486.4"/>
+<text text-anchor="middle" x="424.98" y="-469.8" font-family="Times,serif" font-size="14.00">Main View</text>
+<text text-anchor="middle" x="424.98" y="-453" font-family="Times,serif" font-size="14.00">- Start/Stop Button</text>
+<text text-anchor="middle" x="424.98" y="-436.2" font-family="Times,serif" font-size="14.00">- Interval Slider</text>
+<text text-anchor="middle" x="424.98" y="-419.4" font-family="Times,serif" font-size="14.00">- Describe Now Button</text>
+<text text-anchor="middle" x="424.98" y="-402.6" font-family="Times,serif" font-size="14.00">- History View</text>
+<text text-anchor="middle" x="424.98" y="-385.8" font-family="Times,serif" font-size="14.00">- Status Indicator</text>
+</g>
+<!-- main_controls&#45;&gt;inactive_state -->
+<!-- active_state -->
+<g id="node6" class="node">
+<title>active_state</title>
+<path fill="yellow" stroke="black" d="M797.15,-213.6C797.15,-213.6 664.8,-213.6 664.8,-213.6 658.8,-213.6 652.8,-207.6 652.8,-201.6 652.8,-201.6 652.8,-133.6 652.8,-133.6 652.8,-127.6 658.8,-121.6 664.8,-121.6 664.8,-121.6 797.15,-121.6 797.15,-121.6 803.15,-121.6 809.15,-127.6 809.15,-133.6 809.15,-133.6 809.15,-201.6 809.15,-201.6 809.15,-207.6 803.15,-213.6 797.15,-213.6"/>
+<text text-anchor="middle" x="730.98" y="-197" font-family="Times,serif" font-size="14.00">Display: Active</text>
+<text text-anchor="middle" x="730.98" y="-180.2" font-family="Times,serif" font-size="14.00">(Receiving Descriptions)</text>
+<text text-anchor="middle" x="730.98" y="-163.4" font-family="Times,serif" font-size="14.00">- TTS Active</text>
+<text text-anchor="middle" x="730.98" y="-146.6" font-family="Times,serif" font-size="14.00">- Haptics on new msg</text>
+<text text-anchor="middle" x="730.98" y="-129.8" font-family="Times,serif" font-size="14.00">- History updated</text>
+</g>
+<!-- active_state&#45;&gt;disconnected -->
+<g id="edge19" class="edge">
+<title>active_state-&gt;disconnected</title>
+<path fill="none" stroke="black" d="M809.62,-192.89C829.86,-202.28 850.1,-214.9 864.98,-231.6 887.25,-256.6 888.98,-269.52 888.98,-303 888.98,-561 888.98,-561 888.98,-561 888.98,-603.85 620.9,-632.22 462.86,-645.22"/>
+<polygon fill="black" stroke="black" points="462.87,-641.71 453.18,-646 463.44,-648.68 462.87,-641.71"/>
+<text text-anchor="middle" x="962.84" y="-427.8" font-family="Times,serif" font-size="14.00"> WebSocket Disconnected</text>
+</g>
+<!-- active_state&#45;&gt;active_state -->
+<g id="edge10" class="edge">
+<title>active_state-&gt;active_state</title>
+<path fill="none" stroke="black" d="M809.47,-173.62C820.08,-172.61 827.15,-170.6 827.15,-167.6 827.15,-165.86 824.79,-164.46 820.74,-163.39"/>
+<polygon fill="black" stroke="black" points="821.39,-159.95 810.96,-161.82 820.28,-166.86 821.39,-159.95"/>
+<text text-anchor="middle" x="893.64" y="-171.8" font-family="Times,serif" font-size="14.00"> Receive Description</text>
+<text text-anchor="middle" x="893.64" y="-155" font-family="Times,serif" font-size="14.00">(TTS, Haptics, History)</text>
+</g>
+<!-- active_state&#45;&gt;active_state -->
+<g id="edge12" class="edge">
+<title>active_state-&gt;active_state</title>
+<path fill="none" stroke="black" d="M809.6,-179.8C877.1,-183.6 960.13,-179.53 960.13,-167.6 960.13,-156.32 885.93,-152.07 820.79,-154.85"/>
+<polygon fill="black" stroke="black" points="820.92,-151.34 811.11,-155.33 821.27,-158.33 820.92,-151.34"/>
+<text text-anchor="middle" x="1033.8" y="-171.8" font-family="Times,serif" font-size="14.00"> Tap 'Describe Now'</text>
+<text text-anchor="middle" x="1033.8" y="-155" font-family="Times,serif" font-size="14.00">(Send Cmd, receive desc.)</text>
+</g>
+<!-- active_state&#45;&gt;inactive_state -->
+<g id="edge9" class="edge">
+<title>active_state-&gt;inactive_state</title>
+<path fill="none" stroke="black" d="M664.95,-213.9C658.56,-219.51 652.46,-225.44 647.04,-231.6 635.7,-244.49 641.66,-254.83 627.98,-265.2 611.79,-277.47 592.12,-285.8 572.35,-291.45"/>
+<polygon fill="black" stroke="black" points="571.63,-288.02 562.84,-293.93 573.4,-294.79 571.63,-288.02"/>
+<text text-anchor="middle" x="697.01" y="-252.6" font-family="Times,serif" font-size="14.00"> Tap 'Stop'</text>
+<text text-anchor="middle" x="697.01" y="-235.8" font-family="Times,serif" font-size="14.00">(Send 'stop' Cmd)</text>
+</g>
+<!-- active_state&#45;&gt;error_state -->
+<g id="edge15" class="edge">
+<title>active_state-&gt;error_state</title>
+<path fill="none" stroke="black" d="M652.34,-136.94C636.15,-131.41 619.12,-125.99 602.98,-121.6 506.6,-95.38 393.7,-74.67 317.98,-62.2"/>
+<polygon fill="black" stroke="black" points="318.54,-58.74 308.11,-60.58 317.42,-65.65 318.54,-58.74"/>
+<text text-anchor="middle" x="577.62" y="-91" font-family="Times,serif" font-size="14.00"> Receive Error Msg</text>
+</g>
+<!-- inactive_state&#45;&gt;disconnected -->
+<g id="edge20" class="edge">
+<title>inactive_state-&gt;disconnected</title>
+<path fill="none" stroke="black" d="M486.61,-325.2C494.07,-339.36 503.06,-359 506.98,-377.6 525.65,-466.25 544.47,-507.69 490.98,-580.8 475.47,-602 451.95,-617.48 428.53,-628.56"/>
+<polygon fill="black" stroke="black" points="427.25,-625.3 419.55,-632.57 430.11,-631.69 427.25,-625.3"/>
+<text text-anchor="middle" x="598.78" y="-508.6" font-family="Times,serif" font-size="14.00"> WebSocket Disconnected</text>
+</g>
+<!-- inactive_state&#45;&gt;active_state -->
+<g id="edge8" class="edge">
+<title>inactive_state-&gt;active_state</title>
+<path fill="none" stroke="black" d="M561.25,-303.11C632.82,-301.14 726.66,-293.08 750.98,-265.2 760.76,-253.99 761.6,-239.27 758.44,-224.7"/>
+<polygon fill="black" stroke="black" points="761.82,-223.79 755.74,-215.12 755.08,-225.69 761.82,-223.79"/>
+<text text-anchor="middle" x="810.42" y="-252.6" font-family="Times,serif" font-size="14.00"> Tap 'Start'</text>
+<text text-anchor="middle" x="810.42" y="-235.8" font-family="Times,serif" font-size="14.00">(Send 'start' Cmd)</text>
+</g>
+<!-- inactive_state&#45;&gt;inactive_state -->
+<g id="edge11" class="edge">
+<title>inactive_state-&gt;inactive_state</title>
+<path fill="none" stroke="black" d="M561.41,-311.66C571.99,-310.29 578.93,-307.73 578.93,-304 578.93,-301.84 576.61,-300.08 572.61,-298.71"/>
+<polygon fill="black" stroke="black" points="573.4,-295.3 562.89,-296.66 571.95,-302.15 573.4,-295.3"/>
+<text text-anchor="middle" x="652.6" y="-308.2" font-family="Times,serif" font-size="14.00"> Tap 'Describe Now'</text>
+<text text-anchor="middle" x="652.6" y="-291.4" font-family="Times,serif" font-size="14.00">(Send Cmd, receive desc.)</text>
+</g>
+<!-- configuring -->
+<g id="node8" class="node">
+<title>configuring</title>
+<path fill="yellow" stroke="black" d="M581.63,-185.6C581.63,-185.6 468.32,-185.6 468.32,-185.6 462.32,-185.6 456.32,-179.6 456.32,-173.6 456.32,-173.6 456.32,-161.6 456.32,-161.6 456.32,-155.6 462.32,-149.6 468.32,-149.6 468.32,-149.6 581.63,-149.6 581.63,-149.6 587.63,-149.6 593.63,-155.6 593.63,-161.6 593.63,-161.6 593.63,-173.6 593.63,-173.6 593.63,-179.6 587.63,-185.6 581.63,-185.6"/>
+<text text-anchor="middle" x="524.98" y="-163.4" font-family="Times,serif" font-size="14.00">Adjust Interval Slider</text>
+</g>
+<!-- inactive_state&#45;&gt;configuring -->
+<g id="edge6" class="edge">
+<title>inactive_state-&gt;configuring</title>
+<path fill="none" stroke="black" d="M388.56,-287.18C378.19,-281.82 368.87,-274.68 362.05,-265.2 353.33,-253.08 352.72,-243.26 362.05,-231.6 384.79,-203.16 407.89,-226.4 441.98,-213.6 457.54,-207.76 473.79,-199.49 487.75,-191.62"/>
+<polygon fill="black" stroke="black" points="489.24,-194.8 496.15,-186.77 485.74,-188.74 489.24,-194.8"/>
+<text text-anchor="middle" x="415.51" y="-244.2" font-family="Times,serif" font-size="14.00"> User adjusts slider</text>
+</g>
+<!-- inactive_state&#45;&gt;error_state -->
+<g id="edge16" class="edge">
+<title>inactive_state-&gt;error_state</title>
+<path fill="none" stroke="black" d="M388.58,-286.18C375.09,-280.96 361.99,-274.13 350.98,-265.2 290.25,-215.92 255.63,-127 240.75,-80.02"/>
+<polygon fill="black" stroke="black" points="244.1,-79.02 237.83,-70.48 237.41,-81.07 244.1,-79.02"/>
+<text text-anchor="middle" x="358.75" y="-163.4" font-family="Times,serif" font-size="14.00"> Receive Error Msg</text>
+</g>
+<!-- configuring&#45;&gt;inactive_state -->
+<g id="edge7" class="edge">
+<title>configuring-&gt;inactive_state</title>
+<path fill="none" stroke="black" d="M514.33,-185.97C507.15,-198.33 497.91,-215.52 491.89,-231.6 487.07,-244.48 483.31,-259.19 480.57,-271.9"/>
+<polygon fill="black" stroke="black" points="477.2,-270.92 478.64,-281.42 484.06,-272.32 477.2,-270.92"/>
+<text text-anchor="middle" x="559.94" y="-244.2" font-family="Times,serif" font-size="14.00"> Send 'set_interval' Cmd</text>
+</g>
+<!-- error_state&#45;&gt;connected -->
+<g id="edge17" class="edge">
+<title>error_state-&gt;connected</title>
+<path fill="none" stroke="black" d="M217.87,-69.13C196.11,-101.54 155.31,-168.08 140.25,-231.6 126.3,-290.45 144.31,-360.78 157.46,-400.23"/>
+<polygon fill="black" stroke="black" points="154.1,-401.23 160.68,-409.54 160.72,-398.94 154.1,-401.23"/>
+<text text-anchor="middle" x="228.12" y="-244.2" font-family="Times,serif" font-size="14.00"> Error Cleared / Auto-Resolved</text>
+</g>
+</g>
+</svg>

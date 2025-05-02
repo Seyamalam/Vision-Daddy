@@ -1,0 +1,48 @@
+digraph Mobile_App_UI_Flow {
+    rankdir=TB;
+    node [shape=box, style="rounded,filled", fillcolor=yellow];
+    start [shape=ellipse, label="App Start"];
+    disconnected [label="Display: Disconnected\nShow Connect Button/Auto-retry"];
+    connecting [label="Display: Connecting...\n(WebSocket Client attempts connection)"];
+    connected [label="Display: Connected\nShow Main Controls"];
+    main_controls [label="Main View\n- Start/Stop Button\n- Interval Slider\n- Describe Now Button\n- History View\n- Status Indicator"];
+    active_state [label="Display: Active\n(Receiving Descriptions)\n- TTS Active\n- Haptics on new msg\n- History updated"];
+    inactive_state [label="Display: Inactive\n(Connected, not describing)"];
+    configuring [label="Adjust Interval Slider"];
+    error_state [label="Display: Error Message\n(Received from Server)"];
+
+    // Transitions
+    start -> disconnected;
+    disconnected -> connecting [label=" Auto-Retry / Tap Connect"];
+    connecting -> connected [label=" WebSocket Connected"];
+    connecting -> disconnected [label=" Connection Failed"];
+    connected -> inactive_state [label=" Initial State"];
+
+    inactive_state -> configuring [label=" User adjusts slider"];
+    configuring -> inactive_state [label=" Send 'set_interval' Cmd"];
+
+    inactive_state -> active_state [label=" Tap 'Start'\n(Send 'start' Cmd)"];
+    active_state -> inactive_state [label=" Tap 'Stop'\n(Send 'stop' Cmd)"];
+
+    // On-demand and Error Handling from Active/Inactive states
+    active_state -> active_state [label=" Receive Description\n(TTS, Haptics, History)"];
+    inactive_state -> inactive_state [label=" Tap 'Describe Now'\n(Send Cmd, receive desc.)"];
+    active_state -> active_state [label=" Tap 'Describe Now'\n(Send Cmd, receive desc.)"];
+
+    {rank=same; connected; main_controls;} // Align these visually
+    main_controls -> inactive_state [style=invis]; // Connect for layout
+
+    // Error Handling (Simplified - can originate from multiple states)
+    connected -> error_state [label=" Receive Error Msg"];
+    active_state -> error_state [label=" Receive Error Msg"];
+    inactive_state -> error_state [label=" Receive Error Msg"];
+    error_state -> connected [label=" Error Cleared / Auto-Resolved"]; // Or back to appropriate state
+
+    // Disconnect Handling
+    connected -> disconnected [label=" WebSocket Disconnected"];
+    active_state -> disconnected [label=" WebSocket Disconnected"];
+    inactive_state -> disconnected [label=" WebSocket Disconnected"];
+
+    label = "Simplified Mobile App UI Flow";
+    fontsize=16;
+}

@@ -1,0 +1,38 @@
+digraph Python_Server_Internals {
+    rankdir=TB; // Top to Bottom layout
+    node [shape=record, style=filled]; // Record shape for modules
+
+    subgraph cluster_main {
+        label = "Python Backend Server (Asyncio)";
+        fillcolor=white; style="rounded,filled";
+
+        stream_fetcher [label="{<h>Stream Fetcher| - Connects to ESP32 (HTTP)\l- Handles Reconnection\l- Provides Latest Frame\l}", fillcolor=palegreen];
+        websocket_server [label="{<h>WebSocket Server (WSS)| - Handles Client Connections\l- Authentication\l- Command Parsing\l- Rate Limiting\l- Broadcasts Descriptions/Status\l}", fillcolor=palegreen];
+        client_manager [label="{<h>Client Manager| - Tracks Connected Clients\l- Manages Active State per Client\l- Stores Interval per Client\l}", fillcolor=palegreen];
+        timer_manager [label="{<h>Timer Manager| - Manages Timer Loops per Active Client\l- Uses Client Interval\l- Triggers Description Task\l}", fillcolor=palegreen];
+        description_task [label="{<h>Description Task (Periodic/On-Demand)|<sc>Scene Change Detector\l- Compares Frames (SSIM)\l|<api>API Caller\l- Calls Google API (HTTPS)\l- Handles API Errors\l}", fillcolor=powderblue];
+        config_loader [label="{<h>Config Loader| - Reads .env/config file\l- Provides API Key, ESP32 URL, etc.\l}", fillcolor=lightgrey];
+
+        // Internal Data/Control Flow
+        config_loader -> stream_fetcher [label=" ESP32 URL"];
+        config_loader -> websocket_server [label=" Auth Token, WSS Certs"];
+        config_loader -> description_task:api [label=" API Key"];
+
+        stream_fetcher -> description_task:sc [label=" Latest Frame"];
+
+        websocket_server -> client_manager [label=" Connect/Disconnect"];
+        websocket_server -> client_manager [label=" Start/Stop Cmd"];
+        websocket_server -> client_manager [label=" Set Interval Cmd"];
+        websocket_server -> timer_manager [label=" Start/Stop Signals"];
+        websocket_server -> timer_manager [label=" Interval Update"];
+        websocket_server -> description_task [label=" 'Describe Now' Trigger"];
+
+        client_manager -> timer_manager [label=" Active Client Info"];
+        timer_manager -> description_task [label=" Periodic Trigger"];
+
+        description_task:api -> websocket_server [label=" Description/Error/Status"];
+    }
+
+    label = "Python Server Internal Logic";
+    fontsize=16;
+}
