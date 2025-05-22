@@ -1,0 +1,128 @@
+\documentclass{beamer}
+\usetheme{Madrid} % You can choose other themes
+\usepackage{graphicx}
+\usepackage[table]{xcolor} % For colored table cells
+\usepackage{tabularx}     % For tables with specified width
+\usepackage{array}        % For advanced column formatting in tables
+\usepackage{amsmath}      % For math symbols like \perp
+\usepackage{amssymb}      % For other symbols if needed
+
+% Define wire colors (can still be used for the table in slide 3 if desired)
+\definecolor{wireYellow}{HTML}{FDEE00}
+\definecolor{wirePurple}{HTML}{6A007A}
+\definecolor{wireDarkBlue}{HTML}{0033A0}
+\definecolor{wireSkyBlue}{HTML}{A0D2DB}
+\definecolor{wireTeal}{HTML}{6FC2B4}
+\definecolor{wireSalmon}{HTML}{FFAD99}
+\definecolor{wireLightGreen}{HTML}{90C290}
+\definecolor{wireMagenta}{HTML}{D40078}
+\definecolor{wireDarkGreen}{HTML}{005E5D}
+
+\title{ESP32-CAM Project Documentation}
+\author{Team Alpha \newline John Doe \textbullet Jane Smith \textbullet Project Lead}
+\date{\today}
+\institute{University of Technology / Awesome Company Inc.}
+
+\begin{document}
+
+% --- SLIDE 1: Title and Project Info ---
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Project Overview \& Goals}
+  \begin{block}{Project Name}
+    ESP32-CAM Interfacing and Application
+  \end{block}
+
+  \begin{block}{Team Members}
+    \begin{itemize}
+        \item John Doe - Hardware Integration
+        \item Jane Smith - Software Development
+        \item Project Lead - System Architecture
+    \end{itemize}
+  \end{block}
+  
+  \begin{block}{Key Objectives}
+    \begin{itemize}
+        \item Successfully program the ESP32-CAM module.
+        \item Implement basic image capture.
+        \item Explore [Your Specific Objective Here, e.g., Web Streaming, Object Detection].
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+% --- SLIDE 2: Textual/Symbolic Circuit Description ---
+\begin{frame}{ESP32-CAM to ESP32-CAM-MB Connections}
+  \frametitle{Logical Connections and Signals}
+
+  \begin{block}{Power Connections}
+    \begin{itemize}
+        \item ESP32-CAM \textbf{VCC} ($+5V$ Input) $\longleftrightarrow$ ESP32-CAM-MB \textbf{5V} (Output)
+        \item ESP32-CAM \textbf{3V3} ($+3.3V$ Output/Input) $\longleftrightarrow$ ESP32-CAM-MB \textbf{3V3} (Output)
+        \item ESP32-CAM \textbf{GND} (Ground) $\longleftrightarrow$ ESP32-CAM-MB \textbf{GND} (Ground) \textit{(Two separate GND connections are typically made for stability)}
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Programming \& Serial Communication (UART0)}
+    \textit{Note: TX (Transmit) of one device connects to RX (Receive) of the other.}
+    \begin{itemize}
+        \item ESP32-CAM \textbf{IO1} (U0TXD - Default UART0 Transmit) $\longrightarrow$ ESP32-CAM-MB \textbf{RXD} (Programmer Receive)
+        \item ESP32-CAM \textbf{IO3} (U0RXD - Default UART0 Receive) $\longleftarrow$ ESP32-CAM-MB \textbf{TXD} (Programmer Transmit)
+    \end{itemize}
+    Alternatively, using explicitly labeled UART pins on some ESP32-CAM boards:
+    \begin{itemize}
+        \item ESP32-CAM \textbf{U0T} (GPIO1 - UART0 Transmit) $\longrightarrow$ ESP32-CAM-MB \textbf{RXD}
+        \item ESP32-CAM \textbf{U0R} (GPIO3 - UART0 Receive) $\longleftarrow$ ESP32-CAM-MB \textbf{TXD}
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Boot Mode Control}
+    \begin{itemize}
+        \item ESP32-CAM \textbf{IO0} (Boot Select Pin) $\longleftrightarrow$ ESP32-CAM-MB \textbf{IO0} (or DTR/RTS via circuitry)
+        \begin{itemize}
+            \item \textbf{To Flash:} IO0 must be connected to GND (pulled LOW) when the ESP32-CAM powers up or resets. The ESP32-CAM-MB often handles this automatically.
+            \item \textbf{To Run Program:} IO0 should be floating or pulled HIGH.
+        \end{itemize}
+    \end{itemize}
+  \end{block}
+  
+  \textbf{Symbol Key:}
+  $\longleftrightarrow$ General Connection,
+  $\longrightarrow$ Signal Flow Direction,
+  $V_{CC}$ Power Supply,
+  GND Ground ($\perp$)
+\end{frame}
+
+% --- SLIDE 3: Pinout Table ---
+\begin{frame}{Pinout Connections Table}
+  \frametitle{ESP32-CAM to ESP32-CAM-MB Pinout Summary}
+  \renewcommand{\arraystretch}{1.3} % Increase row height
+  \begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{2.2cm}|X|X|}
+    \hline
+    \textbf{Wire Color \newline (from Diagram)} & \textbf{ESP32-CAM Pin} & \textbf{ESP32-CAM-MB Pin} \\
+    \hline
+    \rowcolor{wireYellow!70} \textcolor{black}{\bf Yellow} & \textbf{3V3} \newline ($+3.3V$ Power) & \textbf{3V3} \newline ($+3.3V$ Power Out) \\
+    \hline
+    \rowcolor{wirePurple!70} \textcolor{white}{\bf Purple} & \textbf{IO1} \newline (U0TXD / TX) & \textbf{RXD} \newline (Programmer UART RX) \\
+    \hline
+    \rowcolor{wireDarkBlue!70} \textcolor{white}{\bf Dark Blue} & \textbf{IO3} \newline (U0RXD / RX) & \textbf{TXD} \newline (Programmer UART TX) \\
+    \hline
+    \rowcolor{wireSkyBlue!70} \textcolor{black}{\bf Sky Blue} & \textbf{GND} \newline (Ground) & \textbf{GND} \newline (Ground) \\
+    \hline
+    \rowcolor{wireTeal!70} \textcolor{black}{\bf Teal} & \textbf{VCC} \newline ($+5V$ Power In) & \textbf{5V} \newline ($+5V$ Power Out) \\
+    \hline
+    \rowcolor{wireSalmon!70} \textcolor{black}{\bf Salmon} & \textbf{U0R} \newline (GPIO3 / Alt. RX) & \textbf{TXD} \newline (Programmer UART TX) \\
+    \hline
+    \rowcolor{wireLightGreen!70} \textcolor{black}{\bf Light Green} & \textbf{U0T} \newline (GPIO1 / Alt. TX) & \textbf{RXD} \newline (Programmer UART RX) \\
+    \hline
+    \rowcolor{wireMagenta!70} \textcolor{white}{\bf Magenta} & \textbf{IO0} \newline (Boot Select) & \textbf{IO0} \newline (Boot Control) \\
+    \hline
+    \rowcolor{wireDarkGreen!70} \textcolor{white}{\bf Dark Green} & \textbf{GND} \newline (Ground) & \textbf{GND} \newline (Ground) \\
+    \hline
+  \end{tabularx}
+  \vfill
+  \tiny Note: Pin names and functions can vary slightly between ESP32-CAM board revisions and ESP32-CAM-MB programmer designs. U0R/U0T are internally connected to GPIO3/GPIO1 for UART0. The programmer's RXD receives data from the ESP32-CAM's TXD, and vice-versa.
+\end{frame}
+
+\end{document}

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="238pt" height="206pt" viewBox="0.00 0.00 237.86 206.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 202)">
+<title>power_pins</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-202 233.86,-202 233.86,4 -4,4"/>
+<!-- Power -->
+<g id="node1" class="node">
+<title>Power</title>
+<ellipse fill="#a9d18e" stroke="black" cx="54.77" cy="-99" rx="54.77" ry="18"/>
+<text text-anchor="middle" x="54.77" y="-94.8" font-family="Times,serif" font-size="14.00">Power Pins</text>
+</g>
+<!-- VCC -->
+<g id="node2" class="node">
+<title>VCC</title>
+<polygon fill="#d5e8d4" stroke="black" points="229.86,-198 175.86,-198 175.86,-162 229.86,-162 229.86,-198"/>
+<text text-anchor="middle" x="202.86" y="-175.8" font-family="Times,serif" font-size="14.00">VCC</text>
+</g>
+<!-- Power&#45;&gt;VCC -->
+<g id="edge1" class="edge">
+<title>Power-&gt;VCC</title>
+<path fill="none" stroke="black" d="M83.94,-114.62C107.26,-127.55 140.54,-146 165.81,-160.01"/>
+<polygon fill="black" stroke="black" points="163.98,-163 174.42,-164.78 167.37,-156.87 163.98,-163"/>
+<text text-anchor="middle" x="142.7" y="-158" font-family="Times,serif" font-size="14.00">VCC</text>
+</g>
+<!-- P3V3 -->
+<g id="node3" class="node">
+<title>P3V3</title>
+<polygon fill="#d5e8d4" stroke="black" points="229.86,-144 175.86,-144 175.86,-108 229.86,-108 229.86,-144"/>
+<text text-anchor="middle" x="202.86" y="-121.8" font-family="Times,serif" font-size="14.00">P3V3</text>
+</g>
+<!-- Power&#45;&gt;P3V3 -->
+<g id="edge2" class="edge">
+<title>Power-&gt;P3V3</title>
+<path fill="none" stroke="black" d="M103.2,-107.77C122.98,-111.42 145.62,-115.61 164.23,-119.04"/>
+<polygon fill="black" stroke="black" points="163.55,-122.48 174.02,-120.85 164.83,-115.6 163.55,-122.48"/>
+<text text-anchor="middle" x="142.7" y="-121.47" font-family="Times,serif" font-size="14.00">3.3V</text>
+</g>
+<!-- P5V -->
+<g id="node4" class="node">
+<title>P5V</title>
+<polygon fill="#d5e8d4" stroke="black" points="229.86,-90 175.86,-90 175.86,-54 229.86,-54 229.86,-90"/>
+<text text-anchor="middle" x="202.86" y="-67.8" font-family="Times,serif" font-size="14.00">P5V</text>
+</g>
+<!-- Power&#45;&gt;P5V -->
+<g id="edge3" class="edge">
+<title>Power-&gt;P5V</title>
+<path fill="none" stroke="black" d="M103.2,-90.23C122.98,-86.58 145.62,-82.39 164.23,-78.96"/>
+<polygon fill="black" stroke="black" points="164.83,-82.4 174.02,-77.15 163.55,-75.52 164.83,-82.4"/>
+<text text-anchor="middle" x="142.7" y="-89.7" font-family="Times,serif" font-size="14.00">5V</text>
+</g>
+<!-- GND -->
+<g id="node5" class="node">
+<title>GND</title>
+<polygon fill="#d5e8d4" stroke="black" points="229.86,-36 175.86,-36 175.86,0 229.86,0 229.86,-36"/>
+<text text-anchor="middle" x="202.86" y="-13.8" font-family="Times,serif" font-size="14.00">GND</text>
+</g>
+<!-- Power&#45;&gt;GND -->
+<g id="edge4" class="edge">
+<title>Power-&gt;GND</title>
+<path fill="none" stroke="black" d="M83.94,-83.38C107.26,-70.45 140.54,-52 165.81,-37.99"/>
+<polygon fill="black" stroke="black" points="167.37,-41.13 174.42,-33.22 163.98,-35 167.37,-41.13"/>
+<text text-anchor="middle" x="142.7" y="-62.7" font-family="Times,serif" font-size="14.00">GND</text>
+</g>
+</g>
+</svg>

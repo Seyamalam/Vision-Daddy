@@ -1,0 +1,44 @@
+\frametitle{Pinout: ESP32-CAM to ESP32-CAM-MB Connections}
+\fontsize{7}{8.4}\selectfont % Smaller font to fit the table
+  \begin{tabularx}{\textwidth}{>{\centering\arraybackslash}p{0.4cm} >{\raggedright\arraybackslash}p{1.8cm} X >{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}p{2.2cm}}
+    \toprule
+    \textbf{Pin \#} & \textbf{ESP32-CAM Label} & \textbf{Wire Color} & \textbf{ESP32-CAM-MB Pin} & \textbf{ESP32 GPIO (from Code)} \\
+    \midrule
+    % Row 1
+    1 & GPIO1 (U0TXD) & \multicolumn{1}{>{\columncolor{wireDarkBlue}}c}{\textcolor{white}{Dark Blue}} & Programmer TXD (ESP32 RX) & --- \\
+    % Row 2
+    2 & GPIO3 (U0RXD) & \multicolumn{1}{>{\columncolor{wirePurple}}c}{\textcolor{white}{Purple}} & Programmer RXD (ESP32 TX) & --- \\
+    % Row 3
+    3 & GND & \multicolumn{1}{>{\columncolor{wireYellow}}c}{\textcolor{black}{Yellow}} & GND & --- \\
+    % Row 4
+    4 & GPIO16 & \multicolumn{1}{>{\columncolor{wireDrkGreen}}c}{\textcolor{white}{Dark Green}} & IO16 & --- \\
+    % Row 5
+    5 & GPIO0 & \multicolumn{1}{>{\columncolor{wireMaroon}}c}{\textcolor{white}{Maroon}} & IO0 (Boot) & XCLK\_GPIO\_NUM (0) \\
+    % Row 6
+    6 & 5V & \multicolumn{1}{>{\columncolor{wireSalmon}}c}{\textcolor{black}{Salmon/Pink}} & 5V & --- \\
+    % Row 7
+    7 & 3V3 & \multicolumn{1}{>{\columncolor{wireLtBlueTeal}}c}{\textcolor{black}{Lt. Blue/Teal}} & 3V3 & --- \\
+    % Row 8
+    8 & GPIO4 & \multicolumn{1}{>{\columncolor{wireMidGreen}}c}{\textcolor{white}{Green}} & IO4 (Flash LED on some MBs) & --- \\
+    % Row 9
+    9 & GPIO2 & \multicolumn{1}{>{\columncolor{wireMagenta}}c}{\textcolor{white}{Magenta}} & MB Pin (near IO0 Button) & --- \\
+    % Row 10
+    10 & GPIO14 (SD CLK) & \multicolumn{1}{>{\columncolor{wireLtGreen}}c}{\textcolor{black}{Light Green}} & \multicolumn{1}{>{\columncolor{wireNotConnected}}c}{Not Connected} & --- \\
+    % Row 11
+    11 & GPIO15 (SD CMD) & \multicolumn{1}{>{\columncolor{wireOrange}}c}{\textcolor{black}{Orange}} & \multicolumn{1}{>{\columncolor{wireNotConnected}}c}{Not Connected} & --- \\
+    % Row 12 (Loop)
+    12 & GPIO13 (SD D3) & \multicolumn{1}{>{\columncolor{wireDarkBlue}}c}{\textcolor{white}{Dark Blue (Loop)}} & MB GND (Bottom rail) & --- \\
+    % Row 13 (Loop)
+    13 & GPIO12 (SD D2) & \multicolumn{1}{>{\columncolor{wireLtBlueTeal}}c}{\textcolor{black}{Lt. Blue/Teal (Loop)}} & MB 5V (Bottom rail) & --- \\
+    % Row 14 (Loop)
+    14 & GND & \multicolumn{1}{>{\columncolor{wirePeach}}c}{\textcolor{black}{Peach (Loop)}} & MB TXD (Bottom rail) & --- \\
+    % Row 15 (Loop)
+    15 & GPIO5 & \multicolumn{1}{>{\columncolor{wireDrkGreen}}c}{\textcolor{white}{Dark Green (Loop)}} & MB RXD (Bottom rail) & Y2\_GPIO\_NUM (5) \\
+    % Row 16
+    16 & GND (Flash LED) & \multicolumn{1}{>{\columncolor{wireNotConnected}}c}{} & \multicolumn{1}{>{\columncolor{wireNotConnected}}c}{Not Connected} & --- \\
+    \bottomrule
+  \end{tabularx}
+  \vspace{0.3cm}
+  \begin{tiny}
+  \textbf{Note:} "MB Pin (near IO0 Button)" for Pin 9 suggests a connection related to the IO0 button functionality on the programmer (e.g., ground). "Not Connected" means the wire is present on the ESP32-CAM side but does not terminate on the ESP32-CAM-MB programming header. Looped wires connect ESP32-CAM pins to alternate pins on the ESP32-CAM-MB. ESP32 GPIOs from code are listed if they match a pin on this 16-pin header.
+  \end{tiny}

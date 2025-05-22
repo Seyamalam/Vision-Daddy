@@ -32,15 +32,15 @@
 \headcommand {\sectionentry {4}{Core Logic and Flows}{11}{Core Logic and Flows}{0}}
 \headcommand {\slideentry {4}{0}{1}{11/11}{}{0}}
 \headcommand {\beamer@framepages {11}{11}}
-\headcommand {\beamer@sectionpages {11}{11}}
-\headcommand {\beamer@subsectionpages {11}{11}}
-\headcommand {\sectionentry {5}{Technology and Code}{12}{Technology and Code}{0}}
-\headcommand {\slideentry {5}{0}{1}{12/12}{}{0}}
+\headcommand {\slideentry {4}{0}{2}{12/12}{}{0}}
 \headcommand {\beamer@framepages {12}{12}}
-\headcommand {\slideentry {5}{0}{2}{13/13}{}{0}}
+\headcommand {\beamer@sectionpages {11}{12}}
+\headcommand {\beamer@subsectionpages {11}{12}}
+\headcommand {\sectionentry {5}{Technology and Code}{13}{Technology and Code}{0}}
+\headcommand {\slideentry {5}{0}{1}{13/13}{}{0}}
 \headcommand {\beamer@framepages {13}{13}}
-\headcommand {\beamer@sectionpages {12}{13}}
-\headcommand {\beamer@subsectionpages {12}{13}}
+\headcommand {\beamer@sectionpages {13}{13}}
+\headcommand {\beamer@subsectionpages {13}{13}}
 \headcommand {\sectionentry {6}{Security Aspects}{14}{Security Aspects}{0}}
 \headcommand {\slideentry {6}{0}{1}{14/14}{}{0}}
 \headcommand {\beamer@framepages {14}{14}}
