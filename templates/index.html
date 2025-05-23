@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESP32-CAM AI Vision</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif; /* A nice modern sans-serif font */
+        }
+        /* Custom scrollbar for better aesthetics (Tailwind doesn't directly style scrollbars) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none; /* For Webkit browsers */
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 flex flex-col items-center min-h-screen p-4 selection:bg-teal-500 selection:text-white">
+
+    <header class="w-full max-w-4xl mb-8 text-center">
+        <h1 class="text-4xl font-bold text-teal-400">ESP32-CAM AI Vision</h1>
+        <p class="text-gray-400 mt-2">Live stream from your ESP32-CAM and get AI-powered descriptions of what it sees.</p>
+    </header>
+
+    <main class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Video Stream Section -->
+        <section class="bg-gray-800 p-6 rounded-xl shadow-2xl">
+            <h2 class="text-2xl font-semibold mb-4 text-teal-300">Live Camera Feed</h2>
+            <div class="aspect-w-16 aspect-h-9 bg-black rounded-lg overflow-hidden shadow-inner">
+                <img id="videoFeed" src="/video_feed" alt="ESP32-CAM Stream" class="w-full h-full object-cover">
+            </div>
+            <canvas id="canvas" class="hidden"></canvas> <!-- For capturing frames -->
+            <div class="mt-4 text-center">
+                 <p id="espStatus" class="text-sm text-gray-500">Connecting to ESP32-CAM...</p>
+            </div>
+        </section>
+
+        <!-- Controls and AI Interaction Section -->
+        <section class="bg-gray-800 p-6 rounded-xl shadow-2xl flex flex-col">
+            <h2 class="text-2xl font-semibold mb-4 text-teal-300">AI Interaction</h2>
+
+            <div class="mb-4">
+                <label for="instructionText" class="block text-sm font-medium text-gray-300 mb-1">Instruction for AI:</label>
+                <input type="text" id="instructionText" value="Describe the scene." class="w-full bg-gray-700 border border-gray-600 text-gray-200 placeholder-gray-500 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 p-2.5">
+            </div>
+
+            <div class="mb-4">
+                <label for="intervalSelect" class="block text-sm font-medium text-gray-300 mb-1">Request Interval:</label>
+                <select id="intervalSelect" class="w-full bg-gray-700 border border-gray-600 text-gray-200 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 p-2.5">
+                    <option value="500">500ms</option>
+                    <option value="1000">1s</option>
+                    <option value="2000" selected>2s</option>
+                    <option value="5000">5s</option>
+                    <option value="10000">10s</option>
+                </select>
+            </div>
+
+            <button id="startButton" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2.5 px-4 rounded-lg transition duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50 mb-4">
+                Start Analysis
+            </button>
+
+            <div>
+                <label for="responseText" class="block text-sm font-medium text-gray-300 mb-1">AI Response:</label>
+                <div id="responseTextContainer" class="w-full h-48 bg-gray-700 border border-gray-600 text-gray-200 text-sm rounded-lg p-3 overflow-y-auto no-scrollbar">
+                    <p id="responseText" class="whitespace-pre-wrap placeholder-gray-500">AI responses will appear here...</p>
+                </div>
+                 <p id="statusText" class="text-xs text-gray-500 mt-1 text-center">Status: Idle</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="w-full max-w-4xl mt-12 text-center text-gray-500 text-sm">
+        <p>&copy; <span id="currentYear"></span> Vision Vault Project. Powered by Flask & Google Gemini.</p>
+    </footer>
+
+    <script>
+        const videoFeed = document.getElementById('videoFeed');
+        const canvas = document.getElementById('canvas');
+        const instructionText = document.getElementById('instructionText');
+        const responseTextElement = document.getElementById('responseText');
+        const intervalSelect = document.getElementById('intervalSelect');
+        const startButton = document.getElementById('startButton');
+        const statusText = document.getElementById('statusText');
+        const espStatus = document.getElementById('espStatus');
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        let intervalId;
+        let isProcessing = false;
+        let imageCaptureController = new AbortController(); // To abort image capture if needed
+
+        // Check ESP32-CAM stream status
+        videoFeed.onload = () => {
+            espStatus.textContent = "ESP32-CAM Stream Active";
+            espStatus.classList.remove('text-gray-500');
+            espStatus.classList.add('text-green-400');
+        };
+        videoFeed.onerror = () => {
+            espStatus.textContent = "Error: ESP32-CAM Stream Unavailable. Check IP in .env and ensure the ESP32 is streaming.";
+            espStatus.classList.remove('text-gray-500');
+            espStatus.classList.add('text-red-400');
+            if(isProcessing) handleStop(); // Stop if stream fails
+        };
+
+
+        async function sendChatCompletionRequest(instruction, imageBase64URL) {
+            statusText.textContent = 'Sending request to AI...';
+            try {
+                const response = await fetch(\`\${window.location.origin}/v1/chat/completions\`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        messages: [
+                            { role: 'user', content: [
+                                { type: 'text', text: instruction },
+                                { type: 'image_url', image_url: { url: imageBase64URL } }
+                            ] },
+                        ]
+                    })
+                });
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    console.error("Server error:", errorData);
+                    statusText.textContent = \`Error: \${errorData.error || response.statusText}\`;
+                    return \`Server error: \${response.status} - \${errorData.error || response.statusText}\`;
+                }
+                const data = await response.json();
+                statusText.textContent = 'AI response received.';
+                return data.choices[0].message.content;
+            } catch (error) {
+                console.error('Error sending chat completion request:', error);
+                statusText.textContent = \`Network Error: \${error.message}\`;
+                return \`Request failed: \${error.message}\`;
+            }
+        }
+
+        function captureImageFromStream() {
+            return new Promise((resolve, reject) => {
+                const signal = imageCaptureController.signal;
+                if (signal.aborted) {
+                    return reject(new DOMException('Aborted', 'AbortError'));
+                }
+
+                // Use the existing img tag which is directly showing the stream
+                if (!videoFeed.complete || videoFeed.naturalWidth === 0) {
+                     console.warn("Video stream image not fully loaded or invalid.");
+                     // Attempt to reload the image source if it seems broken
+                     // This is a bit of a hack, ideally the stream is continuous
+                     const currentSrc = videoFeed.src;
+                     videoFeed.src = ''; // Force reload
+                     videoFeed.src = currentSrc;
+                     return reject(new Error("Stream image not ready."));
+                }
+
+                canvas.width = videoFeed.naturalWidth;
+                canvas.height = videoFeed.naturalHeight;
+                const context = canvas.getContext('2d');
+                context.drawImage(videoFeed, 0, 0, canvas.width, canvas.height);
+                
+                const dataUrl = canvas.toDataURL('image/jpeg', 0.85); // Use JPEG, 0.85 quality
+                if (dataUrl === "data:,") { // Check for empty data URL
+                    return reject(new Error("Failed to capture image, canvas returned empty data."));
+                }
+                resolve(dataUrl);
+
+                signal.addEventListener('abort', () => {
+                    reject(new DOMException('Aborted', 'AbortError'));
+                });
+            });
+        }
+
+
+        async function processData() {
+            if (!isProcessing) return;
+
+            statusText.textContent = 'Capturing image...';
+            const instruction = instructionText.value.trim() || "Describe the image.";
+
+            try {
+                const imageBase64URL = await captureImageFromStream();
+                if (!imageBase64URL) {
+                    responseTextElement.textContent = "Failed to capture image. Stream might not be active or image not loaded.";
+                    statusText.textContent = "Error: Image capture failed.";
+                    // Consider stopping if capture fails repeatedly, or retrying
+                    return;
+                }
+                
+                statusText.textContent = 'Image captured. Sending to AI...';
+                const aiResponse = await sendChatCompletionRequest(instruction, imageBase64URL);
+                responseTextElement.textContent = aiResponse;
+                if (!isProcessing) { // If stopped while waiting for AI
+                    statusText.textContent = "Status: Idle (stopped during AI processing)";
+                } else {
+                    statusText.textContent = "Status: Waiting for next interval...";
+                }
+
+            } catch (error) {
+                console.error('Error in processData:', error);
+                responseTextElement.textContent = \`Error: \${error.message}\`;
+                statusText.textContent = \`Error: \${error.message}\`;
+                if (error.name === 'AbortError') {
+                    console.log("Image capture aborted.");
+                }
+                // If processing and an error occurs, maybe try to continue or stop
+                // For now, it will just log and wait for the next interval if still processing
+            }
+        }
+
+        function handleStart() {
+            if (espStatus.textContent.startsWith("Error:")) {
+                 alert("Cannot start: ESP32-CAM stream is not available. Please check the connection and IP address.");
+                 return;
+            }
+            isProcessing = true;
+            startButton.textContent = "Stop Analysis";
+            startButton.classList.replace('bg-teal-600', 'bg-red-600');
+            startButton.classList.replace('hover:bg-teal-700', 'hover:bg-red-700');
+            instructionText.disabled = true;
+            intervalSelect.disabled = true;
+            responseTextElement.textContent = "Starting analysis...";
+            statusText.textContent = "Status: Processing...";
+
+            imageCaptureController = new AbortController(); // New controller for this session
+
+            const intervalMs = parseInt(intervalSelect.value, 10);
+            processData(); // Initial immediate call
+            intervalId = setInterval(processData, intervalMs);
+        }
+
+        function handleStop() {
+            isProcessing = false;
+            if (intervalId) {
+                clearInterval(intervalId);
+                intervalId = null;
+            }
+            imageCaptureController.abort(); // Abort any ongoing image capture
+
+            startButton.textContent = "Start Analysis";
+            startButton.classList.replace('bg-red-600', 'bg-teal-600');
+            startButton.classList.replace('hover:bg-red-700', 'hover:bg-teal-700');
+            instructionText.disabled = false;
+            intervalSelect.disabled = false;
+            statusText.textContent = "Status: Idle";
+            if (responseTextElement.textContent.startsWith("Starting analysis...")) {
+                 responseTextElement.textContent = "Analysis stopped.";
+            }
+        }
+
+        startButton.addEventListener('click', () => {
+            if (isProcessing) {
+                handleStop();
+            } else {
+                handleStart();
+            }
+        });
+
+        // Stop stream processing when page is closed/navigated away
+        window.addEventListener('beforeunload', () => {
+            if (isProcessing) {
+                handleStop();
+            }
+        });
+
+    </script>
+</body>
+</html>
