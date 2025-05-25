@@ -17,12 +17,36 @@ let intervalId;
 let isProcessing = false;
 let currentSource = 'webcam'; // 'webcam' or 'esp32'
 
+// Add an <img> element for ESP32 stills
+let esp32Img = null;
+
+function showEsp32ImageElement() {
+    if (!esp32Img) {
+        esp32Img = document.createElement('img');
+        esp32Img.id = 'esp32Feed';
+        esp32Img.crossOrigin = "anonymous"; // <-- ADD THIS LINE
+        esp32Img.style.width = video.style.width;
+        esp32Img.style.height = video.style.height;
+        video.parentNode.insertBefore(esp32Img, video);
+    }
+    video.classList.add('hidden');
+    esp32Img.classList.remove('hidden');
+}
+
+function hideEsp32ImageElement() {
+    if (esp32Img) {
+        esp32Img.classList.add('hidden');
+    }
+    video.classList.remove('hidden');
+}
+
 // Event listeners for radio buttons
 sourceWebcam.addEventListener('change', () => {
     if (sourceWebcam.checked) {
         currentSource = 'webcam';
         esp32IpContainer.classList.add('hidden');
         stopEsp32Stream(); // Stop ESP32 stream if it was running
+        hideEsp32ImageElement();
         initCamera(); // Initialize webcam
     }
 });
@@ -36,7 +60,23 @@ sourceEsp32.addEventListener('change', () => {
             stream = null;
             video.srcObject = null; // Clear video element
         }
-        // ESP32 stream will be started by handleStart if IP is provided
+        showEsp32ImageElement();
+        if (esp32IpInput.value) {
+            // Will be handled by handleStart
+            responseText.value = "Ready to connect to ESP32 /capture endpoint.";
+        } else {
+            if (esp32Img) esp32Img.src = '';
+        }
+    }
+});
+
+// Listen for changes to the ESP32 IP input
+esp32IpInput.addEventListener('input', () => {
+    if (sourceEsp32.checked && esp32IpInput.value) {
+        responseText.value = "Ready to connect to ESP32 /capture endpoint.";
+        if (esp32Img) esp32Img.src = '';
+    } else if (sourceEsp32.checked && !esp32IpInput.value) {
+        if (esp32Img) esp32Img.src = '';
     }
 });
 
@@ -102,8 +142,8 @@ async function initCamera() {
 }
 
 function stopEsp32Stream() {
-    video.src = ''; // Clear the video source
-    // No explicit stop command for an MJPEG stream, just stop using it.
+    if (esp32Img) esp32Img.src = '';
+    // No explicit stop command for /capture, just stop updating
 }
 
 function captureImage() {
@@ -112,18 +152,29 @@ function captureImage() {
             console.warn("Webcam stream not ready for capture.");
             return null;
         }
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        const context = canvas.getContext('2d');
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+        return canvas.toDataURL('image/jpeg', 0.8);
     } else if (currentSource === 'esp32') {
-        if (!video.videoWidth || video.readyState < video.HAVE_ENOUGH_DATA) { // For ESP32, we don't have a 'stream' object
-            console.warn("ESP32 stream not ready for capture.");
+        if (!esp32Img || !esp32Img.src) {
+            console.warn("ESP32 image not ready for capture.");
             return null;
         }
+        // Draw the latest ESP32 image onto the canvas
+        // Wait for the image to be loaded
+        if (!esp32Img.complete) {
+            console.warn("ESP32 image not fully loaded yet.");
+            return null;
+        }
+        // Set canvas size to image size
+        canvas.width = esp32Img.naturalWidth;
+        canvas.height = esp32Img.naturalHeight;
+        const context = canvas.getContext('2d');
+        context.drawImage(esp32Img, 0, 0, canvas.width, canvas.height);
+        return canvas.toDataURL('image/jpeg', 0.8);
     }
-
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
-    const context = canvas.getContext('2d');
-    context.drawImage(video, 0, 0, canvas.width, canvas.height);
-    return canvas.toDataURL('image/jpeg', 0.8); // Use JPEG for smaller size, 0.8 quality
 }
 
 async function sendData() {
@@ -153,6 +204,26 @@ async function sendData() {
     }
 }
 
+let esp32IntervalId = null;
+
+function startEsp32ImagePolling(ip, intervalMs) {
+    if (!esp32Img) return;
+    if (esp32IntervalId) clearInterval(esp32IntervalId);
+    const updateImage = () => {
+        esp32Img.src = `http://${ip}/capture?_t=${Date.now()}`; // Prevent caching
+    };
+    updateImage(); // Initial fetch
+    esp32IntervalId = setInterval(updateImage, intervalMs);
+}
+
+function stopEsp32ImagePolling() {
+    if (esp32IntervalId) {
+        clearInterval(esp32IntervalId);
+        esp32IntervalId = null;
+    }
+    if (esp32Img) esp32Img.src = '';
+}
+
 function handleStart() {
     if (currentSource === 'webcam' && !stream) {
         responseText.value = "Webcam not available. Cannot start.";
@@ -165,9 +236,14 @@ function handleStart() {
         return;
     }
 
-    if (currentSource === 'esp32' && esp32IpInput.value && video.src !== `http://${esp32IpInput.value}/`) {
-        // If ESP32 is selected and IP is provided, but stream isn't set or is different, (re)initialize.
-        initCamera(); // This will set the video.src for ESP32
+    if (currentSource === 'esp32') {
+        showEsp32ImageElement();
+        hideEsp32ImageElement(); // Hide video
+        // Start polling images from ESP32
+        const intervalMs = parseInt(intervalSelect.value, 10);
+        startEsp32ImagePolling(esp32IpInput.value, intervalMs);
+    } else {
+        hideEsp32ImageElement();
     }
 
     isProcessing = true;
@@ -186,7 +262,7 @@ function handleStart() {
     const intervalMs = parseInt(intervalSelect.value, 10);
 
     // Initial immediate call
-    // Wait a bit for the ESP32 stream to potentially start if just initiated
+    // Wait a bit for the ESP32 image to potentially start if just initiated
     const initialDelay = currentSource === 'esp32' ? 1000 : 0;
     setTimeout(() => {
         sendData();
@@ -201,6 +277,7 @@ function handleStop() {
         clearInterval(intervalId);
         intervalId = null;
     }
+    stopEsp32ImagePolling();
     startButton.textContent = "Start";
     startButton.classList.remove('stop');
     startButton.classList.add('start');

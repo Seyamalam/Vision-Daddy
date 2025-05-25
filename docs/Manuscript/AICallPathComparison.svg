@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="571pt" height="186pt" viewBox="0.00 0.00 570.61 186.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 182)">
+<title>AICallPathComparison</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-182 566.61,-182 566.61,4 -4,4"/>
+<g id="clust1" class="cluster">
+<title>cluster_SystemA</title>
+<polygon fill="none" stroke="black" points="8,-93 8,-170 315.86,-170 315.86,-93 8,-93"/>
+<text text-anchor="middle" x="161.93" y="-153.4" font-family="Times,serif" font-size="14.00">System A: Server-Mediated</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_SystemB</title>
+<polygon fill="none" stroke="black" points="184.64,-8 184.64,-85 341.38,-85 341.38,-8 184.64,-8"/>
+<text text-anchor="middle" x="263.01" y="-68.4" font-family="Times,serif" font-size="14.00">System B: Direct-Access</text>
+</g>
+<!-- ReactNativeApp_A -->
+<g id="node1" class="node">
+<title>ReactNativeApp_A</title>
+<path fill="none" stroke="black" d="M106.44,-137C106.44,-137 28,-137 28,-137 22,-137 16,-131 16,-125 16,-125 16,-113 16,-113 16,-107 22,-101 28,-101 28,-101 106.44,-101 106.44,-101 112.44,-101 118.44,-107 118.44,-113 118.44,-113 118.44,-125 118.44,-125 118.44,-131 112.44,-137 106.44,-137"/>
+<text text-anchor="middle" x="67.22" y="-116" font-family="Verdana" font-size="10.00">React Native App</text>
+</g>
+<!-- FastAPIServer_A -->
+<g id="node2" class="node">
+<title>FastAPIServer_A</title>
+<path fill="none" stroke="black" d="M295.86,-137C295.86,-137 229.16,-137 229.16,-137 223.16,-137 217.16,-131 217.16,-125 217.16,-125 217.16,-113 217.16,-113 217.16,-107 223.16,-101 229.16,-101 229.16,-101 295.86,-101 295.86,-101 301.86,-101 307.86,-107 307.86,-113 307.86,-113 307.86,-125 307.86,-125 307.86,-131 301.86,-137 295.86,-137"/>
+<text text-anchor="middle" x="262.51" y="-116" font-family="Verdana" font-size="10.00">FastAPI Server</text>
+</g>
+<!-- ReactNativeApp_A&#45;&gt;FastAPIServer_A -->
+<g id="edge1" class="edge">
+<title>ReactNativeApp_A-&gt;FastAPIServer_A</title>
+<path fill="none" stroke="black" d="M118.75,-119C145.37,-119 178.09,-119 205.49,-119"/>
+<polygon fill="black" stroke="black" points="205.36,-122.5 215.36,-119 205.36,-115.5 205.36,-122.5"/>
+<text text-anchor="middle" x="151.54" y="-121.7" font-family="Verdana" font-size="9.00">/vision</text>
+</g>
+<!-- AI_Backend -->
+<g id="node4" class="node">
+<title>AI_Backend</title>
+<path fill="none" stroke="black" d="M550.61,-100C550.61,-100 450.3,-100 450.3,-100 444.3,-100 438.3,-94 438.3,-88 438.3,-88 438.3,-76 438.3,-76 438.3,-70 444.3,-64 450.3,-64 450.3,-64 550.61,-64 550.61,-64 556.61,-64 562.61,-70 562.61,-76 562.61,-76 562.61,-88 562.61,-88 562.61,-94 556.61,-100 550.61,-100"/>
+<text text-anchor="middle" x="500.46" y="-79" font-family="Verdana" font-size="10.00">AI Inference Backend</text>
+</g>
+<!-- FastAPIServer_A&#45;&gt;AI_Backend -->
+<g id="edge2" class="edge">
+<title>FastAPIServer_A-&gt;AI_Backend</title>
+<path fill="none" stroke="black" d="M308.17,-112C341.61,-106.75 388.07,-99.47 426.83,-93.39"/>
+<polygon fill="black" stroke="black" points="427.23,-96.87 436.56,-91.86 426.14,-89.95 427.23,-96.87"/>
+<text text-anchor="middle" x="385.84" y="-107.6" font-family="Verdana" font-size="9.00">Image+Prompt</text>
+</g>
+<!-- PyQt6App_B -->
+<g id="node3" class="node">
+<title>PyQt6App_B</title>
+<path fill="none" stroke="black" d="M284.98,-52C284.98,-52 240.05,-52 240.05,-52 234.05,-52 228.05,-46 228.05,-40 228.05,-40 228.05,-28 228.05,-28 228.05,-22 234.05,-16 240.05,-16 240.05,-16 284.98,-16 284.98,-16 290.98,-16 296.98,-22 296.98,-28 296.98,-28 296.98,-40 296.98,-40 296.98,-46 290.98,-52 284.98,-52"/>
+<text text-anchor="middle" x="262.51" y="-31" font-family="Verdana" font-size="10.00">PyQt6 App</text>
+</g>
+<!-- PyQt6App_B&#45;&gt;AI_Backend -->
+<g id="edge3" class="edge">
+<title>PyQt6App_B-&gt;AI_Backend</title>
+<path fill="none" stroke="black" d="M297.32,-40.88C330.96,-47.72 383.66,-58.44 426.81,-67.22"/>
+<polygon fill="black" stroke="black" points="425.86,-70.6 436.36,-69.16 427.26,-63.74 425.86,-70.6"/>
+<text text-anchor="middle" x="385.84" y="-67.8" font-family="Verdana" font-size="9.00">Image+Prompt</text>
+</g>
+</g>
+</svg>
